@@ -5,30 +5,75 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-	<h1>Focus And Get Sh!t Done</h1>
-	<p id="timeLine">Today's date is <strong><span id=date></span></strong> and the time is <strong><span id="time"></span>.</p></strong>
-	<div class="fullBoard">
-		<div class="toDoList">
-			<h3>To Do List</h3>
-			<div class="taskList"></div>
-			<div class="addNewTask"></div>
+	<div class="header container0"> 
+		<h1 class="mainHeader">Daily Productivity Dashboard</h1>
+		<p id="timeLine">Today is <strong><span id=date></span></strong> and the time is <strong><span id="time"></span>.</p></strong>
+	</div> 
+
+	<div class="fullBoard container1">
+
+<!-- To Do -->
+		<div class="toDoList container2">
+			<h2>To Do</h2>
+			<div class="addNewTask">
+				<input id="newTask" type="text" placeholder="Add new task">
+				<input type="button" id="add" value="Add"></input>
+			</div><br>
+			<h4>Outstanding Items</h4>
+			<div id="taskList"><ul></ul></div>
+			<h4>Completed Items</h4>
 			<div class="doneTaskList"></div>
+			<div class="editTools"></div>
 		</div>
-		<div class="focusTools">
-			<div class="dailyQuote">Daily Quote</div>
-			<div class="dailyFocus">Specific focus goal</div>
+
+<!-- Focus  -->
+		<div class="focusTools container2">
+			<h2>Focus</h2>
+			<div class="dailyQuote">"This is an amazing and inspiring quote"</div>
+			<div class="dailyFocus">
+				<h3>Focus of the Day</h3>
+				<input class="focusInput" type="text" placeholder="Write down your main focus and press ENTER">
+			</div>
 			<div class="pomodoroTimer">
 				<h3>Pomodoro Timer</h3>
-				<div class="pomodoroCount"></div>
-				<div class="pomodoroStart"></div>
+				<p>Use the Pomodoro Timer to concentrate your focus into 25minute blocks.</p>
+				<div class="pomodoroTimer">
+					<button>Start</button>
+					<div class="timeRemaining"></div>
+				</div>
+				<div class="pomodoroCount">
+					<p>Completed Today</p>
+				</div>
 			</div>
 		</div>
-		<div class="noteSection">
-			<h3>My Notes</h3>
-			<div class="noteInput"></div>
-			<div class="noteList"></div>
-			<div class="calendarSync"></div>
+<!-- Notes  -->
+		<div class="noteSection container2">
+			<h2>Notes</h2>
+			<div class="noteInput">
+				<textarea class="textArea" rows="10" cols="50">Start typying your notes here..</textarea>
+				<button type="button">Submit</button>
+			</div>
+			<div class="noteList">
+				<div class="searchBarContainer">
+					<form>
+						<input type="text" placeholder="Search Recent Notes" name="search">
+						<button type="button">Search</button>
+					</form>
+				</div>
+				<div class="recentNotes">
+					<p id="notes"></p>
+				</div>
+			</div>
+			<div class="focusSounds">
+				<h3>Sounds to help you focus</h3>
+				<div class="audioControls">
+					<audio controls></audio>
+					<div class="volumeControl"></div>
+				</div>
+				<div class="audioList"></div>
+			</div>
 		</div>
+
 	</div>
 </body>
 	<script type="text/Javascript" src=script.js></script>

@@ -24,3 +24,41 @@ function updateTime() {
 
 setInterval(updateTime, 1000);
 updateTime(); 
+
+// Add Task To List 
+
+var tasks = [];  
+
+function displayTask() {
+	var task = document.getElementById("newTask").value;
+	 if (task == "" || task == 0)
+	 	{ return false; }
+	 tasks.push(task);
+	document.getElementById("taskList").children[0].innerHTML += "<li>"+tasks[tasks.length-1]+"</li>";
+	task.value = ""
+}	
+
+function displayTask2() {
+	var task = document.getElementById("newTask").value;
+	 if (task == "" || task == 0)
+	 	{ return false; }
+	 else if (event.keyCode === 13){ 
+	 tasks.push(task);
+	document.getElementById("taskList").children[0].innerHTML += "<li>"+tasks[tasks.length-1]+"</li>";
+	task.value = ""
+	}
+	else {return false;}
+}	
+
+document.getElementById("add").addEventListener("click",displayTask); 
+document.getElementById("newTask").addEventListener("keypress",displayTask2); 
+
+// Store completed tasks
+
+var completedTasks = []; 
+
+// maybe need to use a array.map to move from tasks array to completed 
+
+// NotesList Test
+var testArray = ["This is a note about important things", "Here is another note.", "and a third note!"]
+document.getElementById("notes").innerHTML = testArray; 

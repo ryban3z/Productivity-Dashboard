@@ -8,7 +8,7 @@
 	<div class="header container0"> 
 		<h1 class="mainHeader">Daily Productivity Dashboard</h1>
 		<p id="timeLine">Today is <strong><span id=date></span></strong> and the time is <strong><span id="time"></span>.</p></strong>
-	</div> 
+	 </div> 
 
 	<div class="fullBoard container1">
 
@@ -16,15 +16,19 @@
 		<div class="toDoList container2">
 			<h2>To Do</h2>
 			<div class="addNewTask">
-				<input id="newTask" type="text" placeholder="Add new task">
+				<input id="inputTask" type="text" placeholder="Add new task">
 				<input type="button" id="add" value="Add"></input>
-			</div><br>
+			 </div>
 			<h4>Outstanding Items</h4>
-			<div id="taskList"><ul></ul></div>
+			<div id="taskList">
+				<ul></ul>
+			 </div>
 			<h4>Completed Items</h4>
-			<div class="doneTaskList"></div>
+			<div class="doneTaskList" id="completedTaskList">
+				<ul></ul> 
+			 </div>
 			<div class="editTools"></div>
-		</div>
+		 </div>
 
 <!-- Focus  -->
 		<div class="focusTools container2">

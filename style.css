@@ -79,6 +79,10 @@ h4 {
 	transform: scale(1.25);
 }
 
+.done {
+	text-decoration: line-through; 
+}
+
 .delBtn {
 	transform: scale(0.5);
 	opacity: 0.4;
@@ -89,10 +93,6 @@ h4 {
 .delBtn:hover {
 	opacity: 1.0;
 	color: red; 
-}
-
-.delete {
-	display: none;
 }
 
 /*Focus Section*/

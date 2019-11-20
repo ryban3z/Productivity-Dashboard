@@ -33,13 +33,19 @@ var addButton = document.getElementById("add");
 var task = document.getElementById("inputTask");
 var taskList = document.getElementById("taskList").children[0]; 
 
+// Function to create list elements 
 function createListElement() { 
 		var li = document.createElement("li");
 		// need to add here classes to Li and event listeners for strikethrough 
 		li.classList.add("listItem");
+		li.addEventListener("click", markItemDone); 
 		li.appendChild(document.createTextNode(task.value)); 
 		taskList.appendChild(li);
 		task.value = ""; 
+
+		function markItemDone() { 
+			li.classList.toggle("done")
+		}
 
 		var delbtn = document.createElement("button");
 		// need to add classes for delbtn and to make it delete parent 
@@ -49,11 +55,9 @@ function createListElement() {
 		delbtn.addEventListener("click",deleteListItem); 
 
 		function deleteListItem() { 
-		li.classList.add("delete"); 
+			li.remove(); 
 		 }
  }
-
-
 
 function appendTaskClick() {
 	if (task.value.length > 0)  {
@@ -69,6 +73,19 @@ function appendTaskEnter(event) {
 
 addButton.addEventListener("click", appendTaskClick); // Event listener for click on add button 
 task.addEventListener("keypress", appendTaskEnter); //Event lsitenfer for enter on input 
+
+// Function to count tasks - but doesn't update/reduce because the delete just truns display to none 
+ function checkLis(){
+  return document.getElementsByTagName('li').length;
+}
+
+function updateCount() {
+	var count = checkLis(); 
+	document.getElementById('itemCount').innerHTML = count; 
+}
+
+setInterval(updateCount, 100);
+updateCount(); 
 
 // innerHTML method 
 

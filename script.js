@@ -32,19 +32,20 @@ updateTime();
 var addButton = document.getElementById("add"); 
 var task = document.getElementById("inputTask");
 var taskList = document.getElementById("taskList").children[0]; 
+var doneTasks = document.getElementById("completedTaskList").children[0]; 
 
 // Function to create list elements 
 function createListElement() { 
 		var li = document.createElement("li");
-		// need to add here classes to Li and event listeners for strikethrough 
-		li.classList.add("listItem");
-		li.addEventListener("click", markItemDone); 
+		li.classList.add("listItem"); // class for styling 
+		li.addEventListener("click", markItemDone); // event listener to move item when completed 
 		li.appendChild(document.createTextNode(task.value)); 
 		taskList.appendChild(li);
 		task.value = ""; 
 
 		function markItemDone() { 
-			li.classList.toggle("done")
+			li.classList.toggle("done"); 
+			doneTasks.appendChild(li); 
 		}
 
 		var delbtn = document.createElement("button");
@@ -113,16 +114,9 @@ updateCount();
 // addButton.addEventListener("click", displayTaskClick); // Event listener for click on add button 
 // inputEnter.addEventListener("keypress", displayTaskEnter); //Event lsitenfer for enter on input 
 
-// Function to move completed tasks from outstanding to completed 
-
-function moveTask() {
-	var completedTask = document.getElementById("checkbox").value; 
-	if (completedTask = true) {
-		completedTasks.push(completedTask); 
-		document.getElementById("completedTaskList").children[0].innerHTML +="<li>"+"<input type='checkbox' class='checkbox'>"+completedTasks[completedTasks.length-1]+"</li>";
-		}
-}
-
 // NotesList Test
 var testArray = ["This is a note about important things", "Here is another note.", "and a third note!"]
-document.getElementById("notes").innerHTML = testArray; 
+for (var i=0; i <testArray.length; i++) {
+	document.getElementById("notes").innerHTML += testArray[i]; 
+}
+

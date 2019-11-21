@@ -2,21 +2,25 @@
 	box-sizing: border-box;
 }
 
+body {
+	height: 100%; 
+}
 
 .container1 {
 	height: 100%;
+	min-height: 100%; 
 	width: 100%;
 	display: inline-flex;
 	flex-flow: row wrap;
 	justify-content: center; 
 	align-content: space-between; 
 	align-items: stretch; 
-	border: 1px solid black;
+	border: 2px solid red;
 }
 
 .container2 {
 	flex: 1 1 0;
-	border: 1px solid black;
+	border: 2px solid green;
 }
 
 h2 {
@@ -38,7 +42,7 @@ h4 {
 	max-width: 600px;
 	margin: 0 auto;
 	text-align: center; 
-	border: 1px solid black;
+	border: 2px solid blue;
 }
 .mainHeader {
 	color: #4E545A;
@@ -73,6 +77,15 @@ h4 {
 	min-height: 100px; 
 	max-height: 200px;
 	overflow-y: auto; 
+	border: 1px solid black;
+}
+
+#completedTaskList {
+	width: 90%;
+	min-height: 100px; 
+	max-height: 200px;
+	overflow-y: auto; 
+	border: 1px solid black;
 }
 
 .checkbox {
@@ -105,15 +118,22 @@ h4 {
 .dailyQuote {
 	margin: 0 auto;
 	text-align: center;
+	border: 1px solid black;
 }
 
 .dailyFocus {
 	margin: 0 auto;
 	text-align: center;
+	border: 1px solid black;
 }
 .focusInput {
 	width: 75%;
 }
+
+.pomodoroTimer {
+	border: 1px solid red;
+}
+
 
 
 
@@ -123,10 +143,19 @@ h4 {
 	background-color: #65e3ff;
 	border-radius: 5%;
 	margin: 5px;
+	text-align: center; 
 }
 
 .textArea {
 	width: 95%;
-	text-align: center; 
+	text-align: left; 
 }
 
+
+.noteList {
+	border: 1px solid red;
+}
+
+.focusSounds {
+	border: 1px solid black;
+}

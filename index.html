@@ -12,26 +12,25 @@
 
 	<div class="fullBoard container1">
 
-<!-- To Do -->
-		<div class="toDoList container2">
+		<!-- To Do list  -->
+		<div class="toDoList container2 container2-1">
 			<h2>To Do</h2>
 			<div class="addNewTask">
 				<input id="inputTask" type="text" placeholder="Add new task">
 				<input type="button" id="add" value="Add"></input>
 			 </div>
 			<h4>Outstanding Items(<span id="itemCount"></span>)</h4>
-			<div id="taskList">
+			<div id="taskList" class="taskList">
 				<ul></ul>
 			 </div>
 			<h4>Completed Items</h4>
 			<div class="doneTaskList" id="completedTaskList">
-				<ul></ul> 
+				<ul id="doneTasks"></ul> 
 			 </div>
-			<div class="editTools"></div>
+			 <div class="editTools"></div>
 		 </div>
-
-<!-- Focus  -->
-		<div class="focusTools container2">
+		<!-- Focus Section  -->
+		<div class="focusTools container2 container 2-2">
 			<h2>Focus</h2>
 			<div class="dailyQuote">"This is an amazing and inspiring quote"</div>
 			<div class="dailyFocus">
@@ -41,33 +40,38 @@
 			<div class="pomodoroTimer">
 				<h3>Pomodoro Timer</h3>
 				<p>Use the Pomodoro Timer to concentrate your focus into 25minute blocks.</p>
-				<div class="pomodoroTimer">
+				<div class="pomodoroStart">
 					<button>Start</button>
-					<div class="timeRemaining"></div>
-				</div>
+					<div class="timeRemaining">
+						<h5>Time remaining</h5>
+					 </div>
+				 </div>
 				<div class="pomodoroCount">
 					<p>Completed Today</p>
-				</div>
+					<div class="pomodoroIconCount"></div>
+				 </div>
 			</div>
 		</div>
-<!-- Notes  -->
-		<div class="noteSection container2">
+		<!-- Notes  -->
+		<div class="noteSection container2 container2-3">
 			<h2>Notes</h2>
 			<div class="noteInput">
-				<textarea class="textArea" rows="10" cols="50">Start typying your notes here..</textarea>
+				<textarea class="textArea" rows="7" cols="50">Start typing your notes here..</textarea>
 				<button type="button">Submit</button>
-			</div>
+			 </div>
+
 			<div class="noteList">
 				<div class="searchBarContainer">
 					<form>
 						<input type="text" placeholder="Search Recent Notes" name="search">
-						<button type="button">Search</button>
+						<button type="button" class="submitNote">Search</button> 
 					</form>
 				</div>
 				<div class="recentNotes">
 					<p id="notes"></p>
 				</div>
-			</div>
+			 </div>
+
 			<div class="focusSounds">
 				<h3>Sounds to help you focus</h3>
 				<div class="audioControls">
@@ -78,7 +82,7 @@
 			</div>
 		</div>
 
-	</div>
+	 </div>
 </body>
 	<script type="text/Javascript" src=script.js></script>
 </html>

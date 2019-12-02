@@ -119,6 +119,24 @@ li .buttons button {
 	cursor: pointer;
 }
 
+#openTasks:empty::before{ 
+	content: 'Add a task to get started';
+	display: block;
+	width: 100%;
+	text-align: center;
+	color: black;
+	opacity: 0.5;
+ }
+
+#doneTasks:empty::before {
+	content: 'You have no completed items';
+	display: block;
+	width: 100%;
+	text-align: center;
+	color: black;
+	opacity: 0.5;
+}
+
 
 /*Focus Section*/
 .focusTools {

@@ -1,3 +1,11 @@
+// Local data storage
+
+var data = {
+	openTasks: [], 
+	doneTasks: [] 
+}; 
+
+
 // Functions to get the time and date
 
 function updateDate() {
@@ -65,35 +73,44 @@ function createListElement(text) {
 		//
  }
 
+// User wants to delete a task 
  function removeItem () {
   	var item = this.parentNode.parentNode
   	var parent = item.parentNode; 
   	parent.removeChild(item);
  }
 
+// User wants to mark task as completed 
 function completeItem () {
 	var item = this.parentNode.parentNode
 	var parent = item.parentNode
 	var id = parent.id 
+	var value = item.innerText 
 
 	//check if item should be added to completed or re-added to open tasks 
 	var target = (id ==='openTasks') ? document.getElementById('doneTasks'):document.getElementById('openTasks');
 
 	parent.removeChild(item);
 	target.insertBefore(item, target.childNodes[0]); 
+
+	data.openTasks.splice(data.openTasks.indexOf(value),1);
+	data.doneTasks.push(value); 
+	console.log(data);  
 }
 
-// User clicked on add button 
+// User wants to add a new item - click 
 function appendTaskClick() {
 	if (task.value)  {
-	 createListElement(task.value); 
+		data.openTasks.push(task.value); 
+	 	createListElement(task.value); 
 	}
 }
 
-// User hit enter on input 
+// User wants to add a new item - enter 
 function appendTaskEnter() {
 	 if (task.value.length > 0 && event.keyCode === 13) { 
-	 createListElement(task.value); 
+	 	data.openTasks.push(task.value); 
+	 	createListElement(task.value); 
 	} 
 }	
 // Event listeners for clicks and enter button 

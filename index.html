@@ -3,6 +3,7 @@
 <head>
 	<title>Productivity Dashboard</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 </head>
 <body>
 	<div class="header container0"> 
@@ -14,53 +15,70 @@
 
 		<!-- To Do list  -->
 		<div class="toDoList container2 container2-1">
-			<h2>To Do</h2>
+			<h2>Do</h2>
 			<div class="addNewTask">
-				<input id="inputTask" type="text" placeholder="Add new task">
-				<input type="button" id="add" value="Add"></input>
+				<input id="inputTask" type="text" placeholder="Enter a new task">
+				<input id="addItem" type="button"  value="Add"></input>
 			 </div>
-			<h4>Outstanding Items(<span id="itemCount"></span>)</h4>
+			<h4>Tasks To Do (<span id="taskCount"></span>)</h4>
 			<div id="taskList" class="taskList">
-				<ul></ul>
+				<ul id="openTasks"></ul>
 			 </div>
-			<h4>Completed Items</h4>
-			<div class="doneTaskList" id="completedTaskList">
+			<h4>Tasks Completed (<span id="doneCount"></span>)</h4>
+			<div id="completedTaskList" class="taskList">
 				<ul id="doneTasks"></ul> 
 			 </div>
 			 <div class="editTools"></div>
 		 </div>
+
+
 		<!-- Focus Section  -->
 		<div class="focusTools container2 container 2-2">
 			<h2>Focus</h2>
-			<div class="dailyQuote">"This is an amazing and inspiring quote"</div>
+			<div class="dailyQuote">"Do what you can, with what you have, where you are."</div>
 			<div class="dailyFocus">
-				<h3>Focus of the Day</h3>
-				<input class="focusInput" type="text" placeholder="Write down your main focus and press ENTER">
+				<h3>Goal of the Day</h3>
+				<div id="goalPlace"></div>
+				<input class="goal" id="goal" type="text" placeholder="Write down your main focus of the day...">
 			</div>
+
 			<div class="pomodoroTimer">
 				<h3>Pomodoro Timer</h3>
 				<p>Use the Pomodoro Timer to concentrate your focus into 25minute blocks.</p>
-				<div class="pomodoroStart">
-					<button>Start</button>
+				<div class="pomodoroButtons">
+					<button id="pomodoroStart">Start</button>
+					<button id="pomodoroPause">Pause</button>
+					<button id="pomodoroReset">Reset</button>
 					<div class="timeRemaining">
-						<h5>Time remaining</h5>
+						<p>Time remaining: <span id="timer">0</span></p>
 					 </div>
 				 </div>
 				<div class="pomodoroCount">
 					<p>Completed Today</p>
 					<div class="pomodoroIconCount"></div>
 				 </div>
-			</div>
-		</div>
-		<!-- Notes  -->
-		<div class="noteSection container2 container2-3">
-			<h2>Notes</h2>
-			<div class="noteInput">
-				<textarea class="textArea" rows="7" cols="50">Start typing your notes here..</textarea>
-				<button type="button">Submit</button>
 			 </div>
 
-			<div class="noteList">
+			 <div class="focusSounds">
+				<h3>Sounds to help you focus</h3>
+				<div class="audioControls">
+					<audio controls></audio>
+					<div class="volumeControl"></div>
+				</div>
+				<div class="audioList"></div>
+			 </div>
+		 </div>
+
+
+		<!-- Notes  -->
+		<div class="noteSection container2 container2-3">
+			<h2>Write</h2>
+			<div class="noteInput flexbox3">
+				<textarea class="textArea" rows="7" cols="50">Start typing your notes here..</textarea>
+				<button type="button">Capture Note</button>
+			 </div>
+
+			<div class="noteList flexbox3">
 				<div class="searchBarContainer">
 					<form>
 						<input type="text" placeholder="Search Recent Notes" name="search">
@@ -71,15 +89,6 @@
 					<p id="notes"></p>
 				</div>
 			 </div>
-
-			<div class="focusSounds">
-				<h3>Sounds to help you focus</h3>
-				<div class="audioControls">
-					<audio controls></audio>
-					<div class="volumeControl"></div>
-				</div>
-				<div class="audioList"></div>
-			</div>
 		</div>
 
 	 </div>

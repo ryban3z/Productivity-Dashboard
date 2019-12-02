@@ -4,10 +4,27 @@
 
 body {
 	height: 100%; 
+	background: #edf0f1;
+	font-family: 'Roboto', sans-serif;
+	margin: 0;
 }
 
+/*header */
+.header {
+	background-color: #389E65;
+	max-width: 100%;
+	height: 100%; 
+	margin: 0 auto;
+	text-align: center; 
+	padding: 2px 0px;
+}
+.mainHeader, #timeLine {
+	color: #CFCFCF;
+}
+
+/*main dashboard components */
 .container1 {
-	height: 100%;
+	height: 100vh;
 	min-height: 100%; 
 	width: 100%;
 	display: inline-flex;
@@ -15,102 +32,97 @@ body {
 	justify-content: center; 
 	align-content: space-between; 
 	align-items: stretch; 
-	border: 2px solid red;
+	background-color: #7DBF9A;
 }
 
 .container2 {
 	flex: 1 1 0;
-	border: 2px solid green;
 }
 
-h2 {
-	border: 1px solid black;
+.container2 h2 {
 	text-align: center; 
+	position: relative;
+	bottom: 15px;
+	color: #108B45;
 }
-
-h3 {
-	text-align: center;
-}
-
-h4 {
-	text-align: center;
-}
-
-/*header */
-.header {
-	background-color: #C0C2C3;
-	max-width: 600px;
-	margin: 0 auto;
-	text-align: center; 
-	border: 2px solid blue;
-}
-.mainHeader {
-	color: #4E545A;
-}
-
-#timeLine {
-	color: #161A1E;
-}
-
 
 /*To Do Section */
 
 .toDoList {
-	background-color: #ffce65; 
+	background-color: #BCCCD4; 
 	border-radius: 5%;
-	margin: 5px;
+	margin: 5px 5px 5px 10px;
+	padding: 5px;
+	text-align: center;
 }
 
 .addNewTask {
 	margin: 0 auto;
 	text-align: center;
-	width: 80%;
-	border: 1px solid black;
-}
-
-.addNewTask form {
 	width: 100%;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-around;
 }
 
-#taskList {
+.addNewTask #inputTask {
+	display: inline;
+	width: 70%;
+	background: none;
+	border-radius: 10%; 
+}
+
+.addNewTask #addItem { 
+	display: inline;
+	cursor: pointer;
+	text-transform: uppercase; 
+	border: 1px white;
+	color: #fff;
+	background-color: #108B45;
+	border: 1.5px solid #fff;
+	border-radius: 10px;
+	width: 20%;
+}
+
+.addNewTask #addItem:hover {
+	display: inline;
+	cursor: pointer;
+	text-transform: uppercase; 
+	border: 1px white;
+	color: #fff;
+	background-color: #108B45;
+	border: 1.5px solid #108B45;
+	border-radius: 10px;
+	width: 20%;
+}
+
+.taskList {
 	width: 90%;
 	min-height: 100px; 
 	max-height: 200px;
 	overflow-y: auto; 
 	border: 1px solid black;
+	text-align: left;
 }
 
-#completedTaskList {
-	width: 90%;
-	min-height: 100px; 
-	max-height: 200px;
-	overflow-y: auto; 
-	border: 1px solid black;
+.toDoList h4 {
+	text-decoration: underline;
+	text-align: center;
 }
 
-.checkbox {
-	transform: scale(1.25);
+li .buttons {
+	display: inline;
 }
 
-.done {
-	text-decoration: line-through; 
+li .buttons button {
+	cursor: pointer;
 }
 
-.delBtn {
-	transform: scale(0.5);
-	opacity: 0.4;
-	transition-duration: 0.25s;
-	color: black;
-}
-
-.delBtn:hover {
-	opacity: 1.0;
-	color: red; 
-}
 
 /*Focus Section*/
 .focusTools {
-	background-color: #6596ff; 
+	background-color: #BCCCD4; 
 	border-radius: 5%;
 	margin: 5px;
 }
@@ -118,44 +130,136 @@ h4 {
 .dailyQuote {
 	margin: 0 auto;
 	text-align: center;
-	border: 1px solid black;
+	font-style: italic;
 }
 
 .dailyFocus {
 	margin: 0 auto;
 	text-align: center;
-	border: 1px solid black;
 }
-.focusInput {
-	width: 75%;
+.goal {
+	width: 90%;
+	background: none;
+	text-align: center; 
+	padding: 0px 5px 0px 5px;
+	margin: 0px 5px 0px 5px;
 }
 
+.goalElement {
+	color: #BF640A;
+	font-style: italic;
+	font-size: 1.2em
+}
+
+/*Pomodoro Styling */
 .pomodoroTimer {
-	border: 1px solid red;
+	padding: 5px;
 }
 
+.pomodoroTimer h3 {
+	text-align: center;
+}
 
+.pomodoroButtons button {
+	display: inline;
+	cursor: pointer;
+	text-transform: uppercase; 
+	border: 1px white;
+	color: #fff;
+	background-color: #108B45;
+	border: 1.5px solid #fff;
+	border-radius: 10px;
+	width: 20%;
+}
 
+.pomodoroButtons button:hover {
+	display: inline;
+	cursor: pointer;
+	text-transform: uppercase; 
+	border: 1px white;
+	color: #fff;
+	background-color: #108B45;
+	border: 1.5px solid #108B45;
+	border-radius: 10px;
+	width: 20%;
+}
+
+.pomodoroTimer #timer {
+	font-weight: bold; 
+}
+
+/*Focus Sounds*/
+
+.focusSounds h3 {
+	text-align: center; 
+}
 
 /*Note Section */
 
 .noteSection {
-	background-color: #65e3ff;
+	background-color: #BCCCD4;
 	border-radius: 5%;
 	margin: 5px;
 	text-align: center; 
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	align-items: space-between; 
+	padding: 5px;
 }
 
-.textArea {
-	width: 95%;
-	text-align: left; 
+.flexbox3 {
+	display: flex;
+}
+
+.noteInput button {
+	display: inline;
+	cursor: pointer;
+	text-transform: uppercase; 
+	border: 1px white;
+	color: #fff;
+	background-color: #108B45;
+	border: 1.5px solid #fff;
+	border-radius: 10px;
+	
+}
+.noteInput button:hover {
+	display: inline;
+	cursor: pointer;
+	text-transform: uppercase; 
+	border: 1px white;
+	color: #fff;
+	background-color: #108B45;
+	border: 1.5px solid #108B45;
+	border-radius: 10px;
+}
+
+.searchBarContainer {
+	padding-top: 10px;
+}
+
+.searchBarContainer form button {
+	display: inline;
+	cursor: pointer;
+	text-transform: uppercase; 
+	border: 1px white;
+	color: #fff;
+	background-color: #108B45;
+	border: 1.5px solid #fff;
+	border-radius: 10px;
+
+}
+
+.searchBarContainer form button:hover {
+	display: inline;
+	cursor: pointer;
+	text-transform: uppercase; 
+	border: 1px white;
+	color: #fff;
+	background-color: #108B45;
+	border: 1.5px solid #108B45;
+	border-radius: 10px;
 }
 
 
-.noteList {
-	border: 1px solid red;
-}
 
-.focusSounds {
-	border: 1px solid black;
-}

@@ -25,94 +25,156 @@ function updateTime() {
 setInterval(updateTime, 1000);
 updateTime(); 
 
-// Add Task To List 
+// Add and Removing tasks To List 
 
-// Add task to List - append Child method 
+var addButton = document.getElementById("addItem"); // Add new task button 
+var task = document.getElementById("inputTask"); // input new task field 
 
-var addButton = document.getElementById("add"); 
-var task = document.getElementById("inputTask");
-var taskList = document.getElementById("taskList").children[0]; 
-var doneTasks = document.getElementById("completedTaskList").children[0]; 
+// Function to create list item 
+function createListElement(text) { 
+		var list = document.getElementById("openTasks")
 
-// Function to create list elements 
-function createListElement() { 
-		var li = document.createElement("li");
-		li.classList.add("listItem"); // class for styling 
-		li.addEventListener("click", markItemDone); // event listener to move item when completed 
-		li.appendChild(document.createTextNode(task.value)); 
-		taskList.appendChild(li);
+		// Create new list element 
+		var item = document.createElement("li");
+		item.innerText = text; 
+		
+		//create remove and complete buttons 
+		var buttons = document.createElement("div")
+		buttons.classList.add('buttons');
+
+		var remove = document.createElement('button');
+		remove.classList.add('remove');
+		remove.innerHTML = "X"
+
+		// add click event for removing item
+		remove.addEventListener('click', removeItem)
+
+		var complete = document.createElement('button');
+		complete.classList.add('complete');
+		complete.innerHTML = "Y" 
+
+		//add click event for completing item 
+		complete.addEventListener('click', completeItem); 
+
+		buttons.appendChild(remove);
+		buttons.appendChild(complete);
+		item.appendChild(buttons);
+
+		list.insertBefore(item, list.childNodes[0]);
 		task.value = ""; 
-
-		function markItemDone() { 
-			li.classList.toggle("done"); 
-			doneTasks.appendChild(li); 
-		}
-
-		var delbtn = document.createElement("button");
-		// need to add classes for delbtn and to make it delete parent 
-		delbtn.classList.add("delBtn")
-		delbtn.appendChild(document.createTextNode("X"));
-		li.appendChild(delbtn); 
-		delbtn.addEventListener("click",deleteListItem); 
-
-		function deleteListItem() { 
-			li.remove(); 
-		 }
+		//
  }
 
+ function removeItem () {
+  	var item = this.parentNode.parentNode
+  	var parent = item.parentNode; 
+  	parent.removeChild(item);
+ }
+
+function completeItem () {
+	var item = this.parentNode.parentNode
+	var parent = item.parentNode
+	var id = parent.id 
+
+	//check if item should be added to completed or re-added to open tasks 
+	var target = (id ==='openTasks') ? document.getElementById('doneTasks'):document.getElementById('openTasks');
+
+	parent.removeChild(item);
+	target.insertBefore(item, target.childNodes[0]); 
+}
+
+// User clicked on add button 
 function appendTaskClick() {
-	if (task.value.length > 0)  {
-	 createListElement(); 
+	if (task.value)  {
+	 createListElement(task.value); 
 	}
 }
 
-function appendTaskEnter(event) {
+// User hit enter on input 
+function appendTaskEnter() {
 	 if (task.value.length > 0 && event.keyCode === 13) { 
-	 createListElement(); 
+	 createListElement(task.value); 
 	} 
 }	
+// Event listeners for clicks and enter button 
+addButton.addEventListener("click", appendTaskClick); 
+task.addEventListener("keypress", appendTaskEnter); 
 
-addButton.addEventListener("click", appendTaskClick); // Event listener for click on add button 
-task.addEventListener("keypress", appendTaskEnter); //Event lsitenfer for enter on input 
+// Functions to count tasks and update counter 
+ function openTaskCount () {
+  return document.getElementById('openTasks').childElementCount
+}
 
-// Function to count tasks - but doesn't update/reduce because the delete just truns display to none 
- function checkLis(){
-  return document.getElementsByTagName('li').length;
+function completedTaskCount () {
+	return document.getElementById('doneTasks').childElementCount
 }
 
 function updateCount() {
-	var count = checkLis(); 
-	document.getElementById('itemCount').innerHTML = count; 
+	var count = openTaskCount(); 
+	var count2 = completedTaskCount()
+	document.getElementById('taskCount').innerHTML = count;
+	document.getElementById('doneCount').innerHTML = count2 
 }
 
 setInterval(updateCount, 100);
 updateCount(); 
 
-// innerHTML method 
+// capture Goal of the day for focus 
 
-// var tasks = [];  
+function goalInputCapture() {
+	var goal = document.getElementById("goal")
 
-// function displayTaskClick() {
-// 	var task = document.getElementById("newTask").value;
-// 	 if (task == "" || task == 0)
-// 	 	{ return false; }
-// 	tasks.push(task);
-// 	document.getElementById("taskList").children[0].innerHTML +="<li>"+"<input type='checkbox' class='tickbox'>"+tasks[tasks.length-1]+"<button class='delete'>X</button>"+"</li>";
-// }	
+	if (goal.value.length > 0 && event.keyCode === 13) { 
+	
+		var goalPlace = document.getElementById("goalPlace"); 
+		var text = document.getElementById("goal").value;
 
-// function displayTaskEnter() {
-// 	var task = document.getElementById("newTask").value;
-// 	 if (task == "" || task == 0)
-// 	 	{ return false; }
-// 	 else if (event.keyCode === 13){ 
-// 	 tasks.push(task);
-// 	document.getElementById("taskList").children[0].innerHTML +="<li>"+"<input type='checkbox' class='tickbox'>"+tasks[tasks.length-1]+"<button class='delete'>X</button>"+"</li>";
-// 	}
-// 	else {return false;}
-// }	
+		goalElement = document.createElement("h4"); 
+		goalElement.innerText = text; 
+		goalElement.classList.add('goalElement'); 
 
-// addButton.addEventListener("click", displayTaskClick); // Event listener for click on add button 
-// inputEnter.addEventListener("keypress", displayTaskEnter); //Event lsitenfer for enter on input 
+		goalPlace.appendChild(goalElement); 
+
+		// Remove input field after capturing value 
+		goal.remove(0); 
+	 } 
+
+}
+
+goal.addEventListener('keypress', goalInputCapture); 
+
+// Basic pomodoro timer
+
+var myTimer; 
+var startButton = document.getElementById("pomodoroStart"); 
+var pauseButton = document.getElementById("pomodoroPause"); 
+var resetButton = document.getElementById("pomodoroReset"); 
+
+function startTimer () {
+	myTimer = setInterval(myClock, 1000);
+	var c = 10;
+
+	function myClock () { 
+		document.getElementById("timer").innerHTML = --c; 
+		console.log(myTimer)
+		if (c == 0) {
+			clearInterval(myTimer);
+			alert ("Your pomodoro session is up! Congrats!")
+		}
+	}
+}
+
+function stopTimer () { 
+	clearInterval(myTimer)
+}
+
+function resetTimer () {
+	var myTimer
+}
+
+startButton.addEventListener('click', startTimer); 
+pauseButton.addEventListener('click', stopTimer); 
+// resetButton.addEventListener('click', resetTimer);
 
 // NotesList Test
 var testArray = ["This is a note about important things", "Here is another note.", "and a third note!"]

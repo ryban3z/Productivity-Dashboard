@@ -76,6 +76,12 @@ body {
 	height: 25px;
 }
 
+.addNewTask #inputTask:focus {
+	box-shadow: none;
+	outline: none;
+	background-color: #CFCFCF;
+}
+
 .addNewTask #inputTask::placeholder {
 	color: black;
 	opacity: 0.75;
@@ -157,7 +163,7 @@ body {
 	width: 100%;
 	float: left;
 	height:30px;
-	background: #fff;
+	background: #FFF4F4;
 	border: 1px solid black;
 	border-radius: 5px;
 	margin: 0px 0px 3px 0px;
@@ -179,7 +185,7 @@ body {
 	opacity: 0.5;
 	margin: 0px 0px 3px 0px;
 	position: relative;
-	padding: 0px 56px 0px 10px;
+	padding: 4px 56px 0px 10px;
 }
 
 /*Complete and delete buttons styling */
@@ -326,6 +332,12 @@ body {
 	margin: 0px 5px 0px 5px;
 	border-radius: 10px;
 	height: 30px;
+}
+
+.goal:focus {
+	box-shadow: none;
+	outline: none;
+	background-color: #CFCFCF;
 }
 
 .goal::placeholder {

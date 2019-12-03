@@ -56,6 +56,7 @@ body {
 	text-align: center;
 }
 
+/*Styling the task input section*/
 .addNewTask {
 	margin: 0 auto;
 	text-align: center;
@@ -73,7 +74,6 @@ body {
 	border-radius: 10px; 
 	text-indent: 7%; 
 	height: 25px;
-
 }
 
 .addNewTask #inputTask::placeholder {
@@ -111,27 +111,48 @@ body {
 	min-height: 100px; 
 	max-height: 200px;
 	overflow-y: auto; 
-	border: 1px solid black;
 	text-align: left;
 	float: left;
-	padding:5px;
+	padding: 0px 5px 0px 5px;
 }
 
 .toDoList h4 {
-	text-decoration: underline;
 	text-align: center;
+	margin: 10px 0 10px 0;
 }
 
 #openTaskList #openTasks {
 	list-style: none;
 	padding: 0;
+	margin: 0;
 }
 
 #completedTaskList #doneTasks {
 	list-style: none;
 	padding: 0;
+	margin: 0;
 }
 
+/*Placeholder text for tasklists */
+#openTasks:empty::before { 
+	content: 'Add a task to get started.';
+	display: block;
+	width: 100%;
+	text-align: center;
+	color: black;
+	opacity: 0.5;
+ }
+
+#doneTasks:empty::before {
+	content: 'You have no completed items, stop procrastinating.';
+	display: block;
+	width: 100%;
+	text-align: center;
+	color: black;
+	opacity: 0.5;
+}
+
+/*List elements styling*/
 #openTaskList #openTasks li {
 	width: 100%;
 	float: left;
@@ -141,9 +162,10 @@ body {
 	border-radius: 5px;
 	margin: 0px 0px 3px 0px;
 	position: relative;
-	padding: 0px 56px 0px 0px ;
+	padding: 4px 56px 0px 10px ;
 	color: #444;
 	font-size: 1em;
+	top: 50%;
 }
 
 #completedTaskList #doneTasks li {
@@ -157,7 +179,7 @@ body {
 	opacity: 0.5;
 	margin: 0px 0px 3px 0px;
 	position: relative;
-	padding: 0px 56px 0px 0px;
+	padding: 0px 56px 0px 10px;
 }
 
 /*Complete and delete buttons styling */
@@ -190,6 +212,33 @@ body {
 	background: black;
 }
 
+#openTasks .buttonsDiv button svg {
+	width: 15px;
+	height: 15px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: -7.5px 0px 0px -7.5px;
+	cursor: pointer;
+}
+
+#openTasks .buttonsDiv button svg .fill {
+	fill: black;
+	opacity: 0.5;
+}
+
+#openTasks .buttonsDiv button svg .fill {
+	transition:fill 0.2s ease;
+}
+
+#openTasks .buttonsDiv button.remove:hover svg .fill {
+	fill: red;
+}
+
+#openTasks .buttonsDiv button.complete:hover svg .fill {
+	fill: green;
+}
+
 #doneTasks .buttonsDiv {
 	width: 56px;
 	height: 28px; 
@@ -206,26 +255,50 @@ body {
 	border: 0px;
 	box-shadow: none;
 	outline: none;
+	position: relative;
 }
 
+#doneTasks .buttonsDiv button:last-of-type::before {
+	content: '';
+	width: 1px;
+	height: 20px;
+	position: absolute;
+	top: 4px;
+	left: 0;
+	background: black;
+}
+#doneTasks .buttonsDiv button svg {
+	width: 15px;
+	height: 15px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: -7.5px 0px 0px -7.5px;
+	cursor: pointer;
+}
 
-#openTasks:empty::before{ 
-	content: 'Add a task to get started.';
-	display: block;
-	width: 100%;
-	text-align: center;
-	color: black;
-	opacity: 0.5;
- }
-
-#doneTasks:empty::before {
-	content: 'You have no completed items, stop procrastinating.';
-	display: block;
-	width: 100%;
-	text-align: center;
-	color: black;
+#doneTasks .buttonsDiv button svg .fill {
+	fill: black;
 	opacity: 0.5;
 }
+
+#doneTasks .buttonsDiv button svg .fill {
+	transition:fill 0.2s ease;
+}
+
+#doneTasks .buttonsDiv button.remove:hover svg .fill {
+	fill: red;
+}
+
+#doneTasks .buttonsDiv button.complete:hover svg .fill {
+	fill: green;
+} 
+
+
+#doneTasks .buttonsDiv button.complete svg .fill {
+	fill: green;
+}
+
 
 
 /*Focus Section*/

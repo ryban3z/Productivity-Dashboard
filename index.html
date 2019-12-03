@@ -21,12 +21,32 @@
 				<input id="addItem" type="button"  value="Add"></input>
 			 </div>
 			<h4>Tasks To Do (<span id="taskCount"></span>)</h4>
-			<div id="taskList" class="taskList">
-				<ul id="openTasks"></ul>
+			<div id="openTaskList" class="taskList">
+				<ul id="openTasks">
+					<li>Test item 1
+					 <div class="buttonsDiv">
+					 	<button class="remove"></button>
+					 	<button class="complete"></button>
+					  </div>
+					 </li>
+					<li>Test item 2
+					 <div class="buttonsDiv">
+					 	<button></button>
+					 	<button></button>
+					  </div>
+					 </li>
+				</ul>
 			 </div>
 			<h4>Tasks Completed (<span id="doneCount"></span>)</h4>
 			<div id="completedTaskList" class="taskList">
-				<ul id="doneTasks"></ul> 
+				<ul id="doneTasks">
+					<li>Test item 3
+					 <div class="buttonsDiv">
+					 	<button></button>
+					 	<button></button>
+					  </div>
+					 </li>
+				</ul> 
 			 </div>
 			 <div class="editTools"></div>
 		 </div>
@@ -58,7 +78,7 @@
 					<div class="pomodoroIconCount"></div>
 				 </div>
 			 </div>
-
+			 <!-- Focus Sounds  -->
 			 <div class="focusSounds">
 				<h3>Sounds to help you focus</h3>
 				<div class="audioControls">
@@ -73,11 +93,12 @@
 		<!-- Notes  -->
 		<div class="noteSection container2 container2-3">
 			<h2>Write</h2>
+			<!-- notes input area  -->
 			<div class="noteInput flexbox3">
 				<textarea class="textArea" rows="7" cols="50">Start typing your notes here..</textarea>
 				<button type="button">Capture Note</button>
 			 </div>
-
+			 <!-- List of notes plus search bar -->
 			<div class="noteList flexbox3">
 				<div class="searchBarContainer">
 					<form>
@@ -89,6 +110,8 @@
 					<p id="notes"></p>
 				</div>
 			 </div>
+			 <!-- Chatbot  -->
+			 <div class="chatBot"></div>
 		</div>
 
 	 </div>

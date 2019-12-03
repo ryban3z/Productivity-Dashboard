@@ -69,8 +69,17 @@ body {
 .addNewTask #inputTask {
 	display: inline;
 	width: 70%;
-	background: none;
-	border-radius: 10%; 
+	background-color: #CFCFCF;
+	border-radius: 10px; 
+	text-indent: 7%; 
+	height: 25px;
+
+}
+
+.addNewTask #inputTask::placeholder {
+	color: black;
+	opacity: 0.75;
+	font-style: italic;
 }
 
 .addNewTask #addItem { 
@@ -98,12 +107,14 @@ body {
 }
 
 .taskList {
-	width: 90%;
+	width: 100%;
 	min-height: 100px; 
 	max-height: 200px;
 	overflow-y: auto; 
 	border: 1px solid black;
 	text-align: left;
+	float: left;
+	padding:5px;
 }
 
 .toDoList h4 {
@@ -111,16 +122,95 @@ body {
 	text-align: center;
 }
 
-li .buttons {
-	display: inline;
+#openTaskList #openTasks {
+	list-style: none;
+	padding: 0;
 }
 
-li .buttons button {
-	cursor: pointer;
+#completedTaskList #doneTasks {
+	list-style: none;
+	padding: 0;
 }
+
+#openTaskList #openTasks li {
+	width: 100%;
+	float: left;
+	height:30px;
+	background: #fff;
+	border: 1px solid black;
+	border-radius: 5px;
+	margin: 0px 0px 3px 0px;
+	position: relative;
+	padding: 0px 56px 0px 0px ;
+	color: #444;
+	font-size: 1em;
+}
+
+#completedTaskList #doneTasks li {
+	text-decoration: line-through;
+	width: 100%;
+	float: left;
+	height: 30px;
+	background: #fff;
+	border-radius: 5px;
+	border: 1px solid black;
+	opacity: 0.5;
+	margin: 0px 0px 3px 0px;
+	position: relative;
+	padding: 0px 56px 0px 0px;
+}
+
+/*Complete and delete buttons styling */
+#openTasks .buttonsDiv {
+	width: 56px;
+	height: 28px; 
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+#openTasks .buttonsDiv button {
+	width: 28px; 
+	height: 28px;
+	float: left;
+	background: none;
+	border: 0px;
+	box-shadow: none;
+	outline: none;
+	position: relative;
+}
+
+#openTasks .buttonsDiv button:last-of-type::before {
+	content: '';
+	width: 1px;
+	height: 20px;
+	position: absolute;
+	top: 4px;
+	left: 0;
+	background: black;
+}
+
+#doneTasks .buttonsDiv {
+	width: 56px;
+	height: 28px; 
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+#doneTasks .buttonsDiv button {
+	width: 28px; 
+	height: 28px;
+	float: left;
+	background: none;
+	border: 0px;
+	box-shadow: none;
+	outline: none;
+}
+
 
 #openTasks:empty::before{ 
-	content: 'Add a task to get started';
+	content: 'Add a task to get started.';
 	display: block;
 	width: 100%;
 	text-align: center;
@@ -129,7 +219,7 @@ li .buttons button {
  }
 
 #doneTasks:empty::before {
-	content: 'You have no completed items';
+	content: 'You have no completed items, stop procrastinating.';
 	display: block;
 	width: 100%;
 	text-align: center;
@@ -157,10 +247,18 @@ li .buttons button {
 }
 .goal {
 	width: 90%;
-	background: none;
+	background-color: #CFCFCF;
 	text-align: center; 
 	padding: 0px 5px 0px 5px;
 	margin: 0px 5px 0px 5px;
+	border-radius: 10px;
+	height: 30px;
+}
+
+.goal::placeholder {
+	color: black;
+	opacity: 0.75;
+	font-style: italic;
 }
 
 .goalElement {

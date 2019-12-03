@@ -103,6 +103,7 @@ function appendTaskClick() {
 	if (task.value)  {
 		data.openTasks.push(task.value); 
 	 	createListElement(task.value); 
+	 	console.log(data); 
 	}
 }
 
@@ -111,6 +112,7 @@ function appendTaskEnter() {
 	 if (task.value.length > 0 && event.keyCode === 13) { 
 	 	data.openTasks.push(task.value); 
 	 	createListElement(task.value); 
+	 	console.log(data); 
 	} 
 }	
 // Event listeners for clicks and enter button 

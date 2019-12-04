@@ -236,13 +236,8 @@ function stopTimer () {
 	clearInterval(myTimer)
 }
 
-function resetTimer () {
-	var myTimer
-}
-
 startButton.addEventListener('click', startTimer); 
 pauseButton.addEventListener('click', stopTimer); 
-// resetButton.addEventListener('click', resetTimer);
 
 // NotesList Test
 var testArray = ["This is a note about important things", "Here is another note.", "and a third note!"]

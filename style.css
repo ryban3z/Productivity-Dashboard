@@ -434,7 +434,7 @@ body {
 }
 
 /*Note Section */
-
+/*Make entire setion a flexbox */
 .noteSection {
 	background-color: #BCCCD4;
 	border-radius: 5%;
@@ -443,16 +443,28 @@ body {
 	display: flex;
 	flex-direction: column;
 	flex-wrap: nowrap;
-	align-items: space-between; 
+	justify-content: space-between; 
 	padding: 5px;
 }
 
-.flexbox3 {
+/*Note input capture */
+
+.noteInput {
 	display: flex;
+	flex-direction: row;
+	justify-content: flex-start;
 }
 
-.noteInput button {
-	display: inline;
+.textArea {
+	width: 80%;
+	background-color: #CFCFCF;
+	padding: 0px 5px 0px 5px;
+	margin: 0px 5px 0px 5px;
+	border-radius: 10px;
+}
+
+.noteInput .noteCapture {
+	
 	cursor: pointer;
 	text-transform: uppercase; 
 	border: 1px white;
@@ -462,8 +474,7 @@ body {
 	border-radius: 10px;
 	
 }
-.noteInput button:hover {
-	display: inline;
+.noteInput .noteCapture:hover {
 	cursor: pointer;
 	text-transform: uppercase; 
 	border: 1px white;
@@ -473,12 +484,33 @@ body {
 	border-radius: 10px;
 }
 
+/*Recent notes */
 .searchBarContainer {
 	padding-top: 10px;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
 }
 
-.searchBarContainer form button {
-	display: inline;
+.searchBarContainer input {
+	width: 70%;
+}
+
+.searchBarContainer button {
+	position: relative;
+	padding-top: 5px;
+}
+
+.searchBarContainer button svg {
+	width: 18px;
+	height: 18px;
+}
+
+.searchBarContainer button svg .searchSVG {
+	fill: #CFCFCF;
+}
+
+button.searchNote {
 	cursor: pointer;
 	text-transform: uppercase; 
 	border: 1px white;
@@ -486,11 +518,10 @@ body {
 	background-color: #108B45;
 	border: 1.5px solid #fff;
 	border-radius: 10px;
-
+	width: 20%;
 }
 
-.searchBarContainer form button:hover {
-	display: inline;
+button.searchNote:hover {
 	cursor: pointer;
 	text-transform: uppercase; 
 	border: 1px white;
@@ -501,4 +532,5 @@ body {
 }
 
 
+/*Chatbots and advice */
 

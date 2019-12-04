@@ -42,6 +42,8 @@ function createListElement(text, doneTasks) {
 		// Create new list element 
 		var item = document.createElement("li");
 		item.innerText = text; 
+		item.setAttribute("contentEditable", "true")
+		item.setAttribute("draggable","true")
 		
 		//create remove and complete buttons 
 		var buttons = document.createElement("div")
@@ -244,4 +246,24 @@ var testArray = ["This is a note about important things", "Here is another note.
 for (var i=0; i <testArray.length; i++) {
 	document.getElementById("notes").innerHTML += testArray[i]; 
 }
+
+// Draggable test
+
+function allowDrop (event) {
+	event.preventDefault(); 
+}
+
+function drag(event) {
+	event.dataTransfer.setData("text", event.target.id);
+	event.preventDefault(); 
+}
+
+function drop(event) {
+	event.preventDefault();
+	var data = event.dataTransfer.getData("text");
+	event.target.appendChild(document.getElementById(data)); 
+}
+
+
+
 

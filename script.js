@@ -37,37 +37,33 @@ function renderToDoList() {
 
 // User wants to add a new item to the list 
 function createListElement(text, doneTasks) { 
-		var list = (doneTasks) ? document.getElementById("doneTasks") : document.getElementById("openTasks")
+	var list = (doneTasks) ? document.getElementById("doneTasks") : document.getElementById("openTasks") //identifies which tasklist to add new item to 
 
-		// Create new list element 
-		var item = document.createElement("li");
-		item.innerText = text; 
-		item.setAttribute("contentEditable", "true")
-		item.setAttribute("draggable","true")
+	var item = document.createElement("li"); // Create new list element 
+	item.innerText = text; //set input value to the innertext of the element 
+	// item.setAttribute("contentEditable", "true")
+	item.setAttribute("draggable","true") // make element draggable 
+	item.setAttribute("data-draggable","item") // gives element target draggability 
 		
-		//create remove and complete buttons 
-		var buttons = document.createElement("div")
-		buttons.classList.add('buttonsDiv');
+	//create remove and complete buttons 
+	var buttons = document.createElement("div") //div for both buttons 
+	buttons.classList.add('buttonsDiv');
 
-		var remove = document.createElement('button');
-		remove.classList.add('remove');
-		remove.innerHTML = removeSVG
+	var remove = document.createElement('button');
+	remove.classList.add('remove');
+	remove.innerHTML = removeSVG; 
+	remove.addEventListener('click', removeItem); // add click event for removing item
 
-		// add click event for removing item
-		remove.addEventListener('click', removeItem)
+	var complete = document.createElement('button');
+	complete.classList.add('complete');
+	complete.innerHTML = completeSVG; 
+	complete.addEventListener('click', completeItem); //add click event for completing item 
 
-		var complete = document.createElement('button');
-		complete.classList.add('complete');
-		complete.innerHTML = completeSVG
-
-		//add click event for completing item 
-		complete.addEventListener('click', completeItem); 
-
-		buttons.appendChild(remove);
-		buttons.appendChild(complete);
-		item.appendChild(buttons);
-
-		list.insertBefore(item, list.childNodes[0]);
+	//add buttons to buttons div and list element and list elemen to top of tasklist 
+	buttons.appendChild(remove);
+	buttons.appendChild(complete);
+	item.appendChild(buttons);
+	list.insertBefore(item, list.childNodes[0]);
  }
 
 // User wants to delete a task 
@@ -77,17 +73,15 @@ function createListElement(text, doneTasks) {
   	var id = parent.id; 
   	var value = item.innerText;
 
-  	//update data array - remve from data array 
+  	//update data array - rem0ve from data array 
   	if (id === 'openTasks') {
 	data.openTasks.splice(data.openTasks.indexOf(value),1);
 	} else {
 	data.doneTasks.splice(data.openTasks.indexOf(value),1);
 	} 
 
-	dataObjectUpdated();  
-
-	//apply to DOM 
-  	parent.removeChild(item);
+	dataObjectUpdated();  //update local storage 
+  	parent.removeChild(item); //apply to DOM 
  }
 
 // User wants to mark task as completed 
@@ -113,36 +107,69 @@ function completeItem () {
 	//Moves task from open to completed or vice versa in the DOM 
 	parent.removeChild(item);
 	target.insertBefore(item, target.childNodes[0]); 
-	
-	
 }
 
 // User wants to add a new item - click 
 function appendTaskClick() {
 	var value = document.getElementById("inputTask").value; 
 	if (value)  {
-		data.openTasks.push(value); //store in array and udpate data storage
-	 	dataObjectUpdated(); 
-
+		data.openTasks.push(value); //store in array 
+	 	dataObjectUpdated(); //update data storage 
 	 	createListElement(value); //display in DOM 
-	 	task.value = ""; 
+	 	task.value = ""; //clear input field  
 	}
 }
 
 // User wants to add a new item - enter 
 function appendTaskEnter(e) {
-	var value = document.getElementById("inputTask").value; 
+	var value = document.getElementById("inputTask").value; //store input into variable 
 	 if (value && e.code === 'Enter') { 
-	 	data.openTasks.push(value); 
-	 	dataObjectUpdated(); //store in data object and update storage 
-
+	 	data.openTasks.push(value); //store input value in data object array
+	 	dataObjectUpdated(); //update local storage 
 	 	createListElement(value); //update the DOM 
-	 	task.value = ""; 
+	 	task.value = ""; //clear input field 
 	} 
 }	
 
-addButton.addEventListener("click", appendTaskClick); 
-task.addEventListener("keypress", appendTaskEnter); 
+addButton.addEventListener("click", appendTaskClick); //event listener for click on add button 
+task.addEventListener("keypress", appendTaskEnter); //event listener for enter on input field 
+
+// Function to make tasks draggable 
+
+function draggableItems () {
+	// for (var items = document.querySelectorAll('[data-draggable="item"]'), 
+	// 	i = 0; i < items.length; i ++)
+	// {
+	// 	items[i].setAttribute('draggable', 'true');
+	// }
+
+	var item = null
+
+	document.addEventListener('dragstart', function(e) {
+		item = e.target;
+		e.dataTransfer.setData('text', '');
+	}, false);
+
+	document.addEventListener('dragover', function(e) {
+		if(item) {
+			e.preventDefault();
+		 }
+	}, false);	
+
+	document.addEventListener('drop', function(e) {
+		if (e.target.getAttribute('data-draggable') == 'target') {
+			e.target.appendChild(item);
+			e.preventDefault();
+		}
+	}, false);
+
+	document.addEventListener('dragend', function(e) {
+		item = null; 
+	}, false);
+	
+}; 
+
+draggableItems(); 
 
 // Functions to count tasks and update counter 
  function openTaskCount () {

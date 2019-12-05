@@ -42,11 +42,11 @@ function createListElement(text, doneTasks) {
 	var item = document.createElement("li"); // Create new list element 
 	item.innerText = text; //set input value to the innertext of the element 
 	// item.setAttribute("contentEditable", "true")
-	item.setAttribute("draggable","true") // make element draggable 
-	item.setAttribute("data-draggable","item") // gives element target draggability 
+	// item.setAttribute("draggable","true"); // make element draggable 
+	// item.setAttribute("data-draggable","dragItem"); // gives element target draggability 
 		
 	//create remove and complete buttons 
-	var buttons = document.createElement("div") //div for both buttons 
+	var buttons = document.createElement("div"); //div for both buttons 
 	buttons.classList.add('buttonsDiv');
 
 	var remove = document.createElement('button');
@@ -59,7 +59,7 @@ function createListElement(text, doneTasks) {
 	complete.innerHTML = completeSVG; 
 	complete.addEventListener('click', completeItem); //add click event for completing item 
 
-	//add buttons to buttons div and list element and list elemen to top of tasklist 
+	//add buttons to buttons div and list element and append list element to top of tasklist 
 	buttons.appendChild(remove);
 	buttons.appendChild(complete);
 	item.appendChild(buttons);
@@ -136,40 +136,40 @@ task.addEventListener("keypress", appendTaskEnter); //event listener for enter o
 
 // Function to make tasks draggable 
 
-function draggableItems () {
-	// for (var items = document.querySelectorAll('[data-draggable="item"]'), 
-	// 	i = 0; i < items.length; i ++)
-	// {
-	// 	items[i].setAttribute('draggable', 'true');
-	// }
+// function draggableItems () {
+// 	// for (var items = document.querySelectorAll('[data-draggable="item"]'), 
+// 	// 	i = 0; i < items.length; i ++)
+// 	// {
+// 	// 	items[i].setAttribute	('draggable', 'true');
+// 	// }
 
-	var item = null
+// 	var dragItem = null
 
-	document.addEventListener('dragstart', function(e) {
-		item = e.target;
-		e.dataTransfer.setData('text', '');
-	}, false);
+// 	document.addEventListener('dragstart', function(e) {
+// 		dragItem = e.target;
+// 		e.dataTransfer.setData('text', '');
+// 	}, false);
 
-	document.addEventListener('dragover', function(e) {
-		if(item) {
-			e.preventDefault();
-		 }
-	}, false);	
+// 	document.addEventListener('dragover', function(e) {
+// 		if(dragItem) {
+// 			e.preventDefault();
+// 		 }
+// 	}, false);	
 
-	document.addEventListener('drop', function(e) {
-		if (e.target.getAttribute('data-draggable') == 'target') {
-			e.target.appendChild(item);
-			e.preventDefault();
-		}
-	}, false);
+// 	document.addEventListener('drop', function(e) {
+// 		if (e.target.getAttribute('data-draggable') == 'target') {
+// 			e.target.appendChild(dragItem);
+// 			e.preventDefault();
+// 		}
+// 	}, false);
 
-	document.addEventListener('dragend', function(e) {
-		item = null; 
-	}, false);
+// 	document.addEventListener('dragend', function(e) {
+// 		dragItem = null; 
+// 	}, false);
 	
-}; 
+// }; 
 
-draggableItems(); 
+// draggableItems(); 
 
 // Functions to count tasks and update counter 
  function openTaskCount () {
@@ -246,49 +246,56 @@ var myTimer;
 var startButton = document.getElementById("pomodoroStart"); 
 var pauseButton = document.getElementById("pomodoroPause"); 
 var resetButton = document.getElementById("pomodoroReset"); 
+var list = document.getElementById("pomodoroCount"); 
 
 function startTimer () {
 	myTimer = setInterval(myClock, 1000);
-	var c = 10;
+	var c = 5;
 
 	function myClock () { 
-		document.getElementById("timer").innerHTML = --c; 
-		console.log(myTimer)
+
+		--c; 
+		var minutes = Math.floor(c/60); 
+		var seconds = c - minutes * 60;  
+		document.getElementById("timer").innerHTML = minutes +"m" + ' ' + seconds + "s"
 		if (c == 0) {
+
+			// var list = getElementById("pomodoroCount"); 
+
 			clearInterval(myTimer);
-			alert ("Your pomodoro session is up! Congrats!")
+			document.getElementById("timer").innerHTML = "You just completed a session!" ;
+
+			var newPomodoro = document.createElement('img');
+			newPomodoro.setAttribute("src","assets/tomato.svg")
+			newPomodoro.setAttribute("src","assets/tomato.svg")
+			newPomodoro.classList.add("pomodoroIcon2")
+
+			list.appendChild(newPomodoro);
+
+			updatePomodoroCount()
 		}
 	}
 }
 
-function stopTimer () { 
-	clearInterval(myTimer)
+function resetTimer () { 
+	document.getElementById("timer").innerHTML = "Click to start";
+	clearInterval(myTimer); 
 }
 
 startButton.addEventListener('click', startTimer); 
-pauseButton.addEventListener('click', stopTimer); 
+resetButton.addEventListener('click', resetTimer); 
+
+// Count number of pomodoros
+
+function updatePomodoroCount () {
+	var count = document.getElementById('pomodoroCount').childElementCount;
+	document.getElementById("pomodoroCounter").innerHTML = count;
+}
 
 // NotesList Test
 var testArray = ["This is a note about important things", "Here is another note.", "and a third note!"]
 for (var i=0; i <testArray.length; i++) {
 	document.getElementById("notes").innerHTML += testArray[i]; 
-}
-
-// Draggable test
-
-function allowDrop (event) {
-	event.preventDefault(); 
-}
-
-function drag(event) {
-	event.dataTransfer.setData("text", event.target.id);
-	event.preventDefault(); 
-}
-
-function drop(event) {
-	event.preventDefault();
-	var data = event.dataTransfer.getData("text");
-	event.target.appendChild(document.getElementById(data)); 
 }
 
 

@@ -4,16 +4,17 @@
 
 body {
 	height: 100%; 
-	background: #edf0f1;
+	background: #6D6D6D;  /*#edf0f1;*/
 	font-family: 'Roboto', sans-serif;
 	margin: 0;
 }
 
 /*header */
 .header {
-	background-color: #389E65;
+	background-color: #363636; /* #389E65; */
 	max-width: 100%;
 	height: 100%; 
+	max-height: 150px;
 	margin: 0 auto;
 	text-align: left; 
 	padding: 10px 0px 10px 0 ;
@@ -26,6 +27,13 @@ body {
 	padding: 2px 0px 2px 20px;
 	margin: 5px 0 5px 0;
 }
+
+.top-middle img {
+	max-height:100%;
+	max-width: 100%;
+	object-fit: contain;
+}
+
 
 .top-right {
 	display: flex;
@@ -61,7 +69,7 @@ body {
 	justify-content: center; 
 	align-content: space-between; 
 	align-items: stretch; 
-	background-color: #7DBF9A;
+	background-color: #6D6D6D; /*#7DBF9A;*/
 }
 
 .container2 {
@@ -72,7 +80,7 @@ body {
 	text-align: center; 
 	position: relative;
 	bottom: 15px;
-	color: #108B45;
+	color: #030202; /*#108B45;*/
 }
 
 /*To Do Section */
@@ -123,7 +131,7 @@ body {
 	text-transform: uppercase; 
 	border: 1px white;
 	color: #fff;
-	background-color: #108B45;
+	background-color: #2b2b2b; /*#108B45;*/
 	border: 1.5px solid #fff;
 	border-radius: 10px;
 	width: 20%;
@@ -135,8 +143,8 @@ body {
 	text-transform: uppercase; 
 	border: 1px white;
 	color: #fff;
-	background-color: #108B45;
-	border: 1.5px solid #108B45;
+	background-color:#2b2b2b; /*#108B45;*/
+	border: 1.5px solid #2b2b2b; /*#108B45;*/
 	border-radius: 10px;
 	width: 20%;
 }
@@ -394,6 +402,10 @@ body {
 	text-align: center;
 }
 
+.pomodoroTimer p {
+	padding: 10px;
+}
+
 .pomodoroIcon {
 	height: 20px;
 	width: 20px;
@@ -405,7 +417,7 @@ body {
 	text-transform: uppercase; 
 	border: 1px white;
 	color: #fff;
-	background-color: #108B45;
+	background-color: #2b2b2b; /*#108B45;*/
 	border: 1.5px solid #fff;
 	border-radius: 10px;
 	width: 20%;
@@ -417,14 +429,26 @@ body {
 	text-transform: uppercase; 
 	border: 1px white;
 	color: #fff;
-	background-color: #108B45;
-	border: 1.5px solid #108B45;
+	background-color: #2b2b2b; /*#108B45;*/
+	border: 1.5px solid #2b2b2b; /*#108B45;*/
 	border-radius: 10px;
 	width: 20%;
 }
 
 .pomodoroTimer #timer {
 	font-weight: bold; 
+}
+
+#pomodoroCount {
+	height: 40px;
+	width: 100%;
+	padding: 0px 20px 0px 20px;
+}
+
+#pomodoroCount .pomodoroIcon2 {
+	height: 30px;
+	width: 30px;
+	margin: 5px;
 }
 
 /*Focus Sounds*/
@@ -469,7 +493,7 @@ body {
 	text-transform: uppercase; 
 	border: 1px white;
 	color: #fff;
-	background-color: #108B45;
+	background-color: #2b2b2b; /*#108B45;*/
 	border: 1.5px solid #fff;
 	border-radius: 10px;
 	
@@ -479,8 +503,8 @@ body {
 	text-transform: uppercase; 
 	border: 1px white;
 	color: #fff;
-	background-color: #108B45;
-	border: 1.5px solid #108B45;
+	background-color: #2b2b2b; /*#108B45;*/
+	border: 1.5px solid #2b2b2b; /*#108B45;*/
 	border-radius: 10px;
 }
 
@@ -489,16 +513,18 @@ body {
 	padding-top: 10px;
 	display: flex;
 	flex-direction: row;
-	flex-wrap: wrap;
+	justify-content: flex-start; 
+
 }
 
 .searchBarContainer input {
-	width: 70%;
+	width: 100%; 
 }
 
 .searchBarContainer button {
 	position: relative;
 	padding-top: 5px;
+	width: 19%;
 }
 
 .searchBarContainer button svg {
@@ -515,7 +541,7 @@ button.searchNote {
 	text-transform: uppercase; 
 	border: 1px white;
 	color: #fff;
-	background-color: #108B45;
+	background-color: #2b2b2b; /*#108B45;*/
 	border: 1.5px solid #fff;
 	border-radius: 10px;
 	width: 20%;
@@ -526,8 +552,8 @@ button.searchNote:hover {
 	text-transform: uppercase; 
 	border: 1px white;
 	color: #fff;
-	background-color: #108B45;
-	border: 1.5px solid #108B45;
+	background-color: #2b2b2b; /*#108B45;*/
+	border: 1.5px solid #2b2b2b;/* #108B45;*/
 	border-radius: 10px;
 }
 

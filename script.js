@@ -41,7 +41,7 @@ function createListElement(text, doneTasks) {
 
 	var item = document.createElement("li"); // Create new list element 
 	item.innerText = text; //set input value to the innertext of the element 
-	// item.setAttribute("contentEditable", "true")
+	item.setAttribute("contentEditable", "true") //make content editable
 	// item.setAttribute("draggable","true"); // make element draggable 
 	// item.setAttribute("data-draggable","dragItem"); // gives element target draggability 
 		

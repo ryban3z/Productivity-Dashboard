@@ -5,21 +5,24 @@ var data = (localStorage.getItem('toDoList')) ? JSON.parse(localStorage.getItem(
 	doneTasks: [] 
 }; 
 
+var dataPomodoro = (localStorage.getItem('pomodorosToday')) ? JSON.parse(localStorage.getItem("pomodorosToday")) : { };
+
 // Declare key global variables prior to render 
 var removeSVG = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><defs></defs><title>Delete</title><g data-name="Layer"><path class="fill" d="M12,3a9,9,0,1,0,9,9A9,9,0,0,0,12,3ZM1,12A11,11,0,1,1,12,23,11,11,0,0,1,1,12Z"/><path class="fill" d="M7.12,16.71a1,1,0,0,1,0-1.42l8.49-8.48A1,1,0,0,1,17,8.22L8.54,16.71A1,1,0,0,1,7.12,16.71Z"/><path class="fill" d="M6.71,6.71a1,1,0,0,1,1.41,0l8.49,8.48a1,1,0,0,1-1.42,1.42L6.71,8.12A1,1,0,0,1,6.71,6.71Z"/></g></svg>'
 var completeSVG = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><defs></defs><title>Complete</title><g data-name="Layer"><path class="fill" d="M18.07,8.28A1,1,0,0,1,18,9.65l-7.34,6.87A1.19,1.19,0,0,1,9,16.42L6,13.74a1,1,0,0,1,1.33-1.5L10,14.5l6.68-6.3A1,1,0,0,1,18.07,8.28Z"/><path class="fill" d="M12,3a9,9,0,1,0,9,9A9,9,0,0,0,12,3ZM1,12A11,11,0,1,1,12,23,11,11,0,0,1,1,12Z"/></g></svg>'
+var list = document.getElementById("pomodoroCount"); 
 
 //On load, we want to get the localStorage and pass it in to the data object so it is not empty 
 renderToDoList(); 
+renderPomodoro(); 
+
+// renderPomodoros(): 
 
 // Add and Removing tasks To List - updating data and DOM 
 
 var addButton = document.getElementById("addItem"); // Add new task button 
 var task = document.getElementById("inputTask"); // input new task field 
 
-function dataObjectUpdated() {
-	localStorage.setItem('toDoList',JSON.stringify(data));
-}
 
 function renderToDoList() {
 	if (!data.openTasks.length && !data.doneTasks.length) return; 
@@ -33,6 +36,11 @@ function renderToDoList() {
 		var value = data.doneTasks[j]; 
 		createListElement(value, true); 
 	}
+}
+
+// Update local storage each time task is changed 
+function dataObjectUpdated() {
+	localStorage.setItem('toDoList',JSON.stringify(data));
 }
 
 // User wants to add a new item to the list 
@@ -134,43 +142,6 @@ function appendTaskEnter(e) {
 addButton.addEventListener("click", appendTaskClick); //event listener for click on add button 
 task.addEventListener("keypress", appendTaskEnter); //event listener for enter on input field 
 
-// Function to make tasks draggable 
-
-// function draggableItems () {
-// 	// for (var items = document.querySelectorAll('[data-draggable="item"]'), 
-// 	// 	i = 0; i < items.length; i ++)
-// 	// {
-// 	// 	items[i].setAttribute	('draggable', 'true');
-// 	// }
-
-// 	var dragItem = null
-
-// 	document.addEventListener('dragstart', function(e) {
-// 		dragItem = e.target;
-// 		e.dataTransfer.setData('text', '');
-// 	}, false);
-
-// 	document.addEventListener('dragover', function(e) {
-// 		if(dragItem) {
-// 			e.preventDefault();
-// 		 }
-// 	}, false);	
-
-// 	document.addEventListener('drop', function(e) {
-// 		if (e.target.getAttribute('data-draggable') == 'target') {
-// 			e.target.appendChild(dragItem);
-// 			e.preventDefault();
-// 		}
-// 	}, false);
-
-// 	document.addEventListener('dragend', function(e) {
-// 		dragItem = null; 
-// 	}, false);
-	
-// }; 
-
-// draggableItems(); 
-
 // Functions to count tasks and update counter 
  function openTaskCount () {
   return document.getElementById('openTasks').childElementCount
@@ -218,6 +189,7 @@ setInterval(updateTime, 1000);
 updateTime(); 
 
 // capture Goal of the day for focus 
+goal.addEventListener('keypress', goalInputCapture); 
 
 function goalInputCapture(e) {
 	var goal = document.getElementById("goal")
@@ -238,7 +210,6 @@ function goalInputCapture(e) {
 	 } 
 }
 
-goal.addEventListener('keypress', goalInputCapture); 
 
 // Basic pomodoro timer
 
@@ -246,35 +217,61 @@ var myTimer;
 var startButton = document.getElementById("pomodoroStart"); 
 var pauseButton = document.getElementById("pomodoroPause"); 
 var resetButton = document.getElementById("pomodoroReset"); 
-var list = document.getElementById("pomodoroCount"); 
+var clearButton = document.getElementById("pomodoroClear");
+
+clearButton.addEventListener("click", clearPomodoroCount); 
+
+// update local storage each time pomodoro counter increases 
+function pomodoroObjectUpdated() { 
+	localStorage.setItem('pomodorosToday',JSON.stringify(pomodorosToday))
+}
 
 function startTimer () {
 	myTimer = setInterval(myClock, 1000);
-	var c = 5;
+	var c = 2;
 
 	function myClock () { 
-
 		--c; 
 		var minutes = Math.floor(c/60); 
 		var seconds = c - minutes * 60;  
 		document.getElementById("timer").innerHTML = minutes +"m" + ' ' + seconds + "s"
 		if (c == 0) {
-
-			// var list = getElementById("pomodoroCount"); 
-
 			clearInterval(myTimer);
-			document.getElementById("timer").innerHTML = "You just completed a session!" ;
-
-			var newPomodoro = document.createElement('img');
-			newPomodoro.setAttribute("src","assets/tomato.svg")
-			newPomodoro.setAttribute("src","assets/tomato.svg")
-			newPomodoro.classList.add("pomodoroIcon2")
-
-			list.appendChild(newPomodoro);
-
-			updatePomodoroCount()
+			document.getElementById("timer").innerHTML = "You just completed a session!";
+			createPomodoro(); 
+			updatePomodoroCount(); 
 		}
 	}
+}
+
+function createPomodoro() { 
+	var newPomodoro = document.createElement('img');
+	newPomodoro.setAttribute("src","assets/tomato.svg");
+	newPomodoro.classList.add("pomodoroIcon2"); 
+	list.appendChild(newPomodoro);
+}
+
+// Count number of pomodoros
+function updatePomodoroCount () {
+	var count = document.getElementById('pomodoroCount').childElementCount;
+	document.getElementById("pomodoroCounter").innerHTML = count;
+	dataPomodoro = count; 
+	localStorage.setItem('pomodorosToday', JSON.stringify(count)); 
+}
+
+function renderPomodoro() {
+	if (!dataPomodoro) return; 
+	for (var i=0; i < dataPomodoro; i++) {
+		createPomodoro(); 
+		var count = document.getElementById('pomodoroCount').childElementCount;
+		document.getElementById("pomodoroCounter").innerHTML = count;
+	}
+}
+
+function clearPomodoroCount() {
+	localStorage.removeItem("pomodorosToday"); 
+	document.getElementById("pomodoroCount").innerHTML = ''; 
+	document.getElementById("pomodoroCounter").innerHTML = '0'; 
 }
 
 function resetTimer () { 
@@ -285,12 +282,6 @@ function resetTimer () {
 startButton.addEventListener('click', startTimer); 
 resetButton.addEventListener('click', resetTimer); 
 
-// Count number of pomodoros
-
-function updatePomodoroCount () {
-	var count = document.getElementById('pomodoroCount').childElementCount;
-	document.getElementById("pomodoroCounter").innerHTML = count;
-}
 
 // NotesList Test
 var testArray = ["This is a note about important things", "Here is another note.", "and a third note!"]

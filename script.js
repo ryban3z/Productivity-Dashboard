@@ -7,6 +7,21 @@ var data = (localStorage.getItem('toDoList')) ? JSON.parse(localStorage.getItem(
 
 var dataPomodoro = (localStorage.getItem('pomodorosToday')) ? JSON.parse(localStorage.getItem("pomodorosToday")) : { };
 
+var dailyQuotes = [ 
+{
+	line: "Do what you can, with what you have, where you are.",
+	by: "Theodore Roosevelt"
+}, 
+{
+	line: "Well done is better than well said", 
+	by: "Benjamin Franklin"
+}, 
+{
+	line: "Quality is not an act, it is a habit",
+	by: "Aristotle"
+}
+]; 
+
 // Declare key global variables prior to render 
 var removeSVG = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><defs></defs><title>Delete</title><g data-name="Layer"><path class="fill" d="M12,3a9,9,0,1,0,9,9A9,9,0,0,0,12,3ZM1,12A11,11,0,1,1,12,23,11,11,0,0,1,1,12Z"/><path class="fill" d="M7.12,16.71a1,1,0,0,1,0-1.42l8.49-8.48A1,1,0,0,1,17,8.22L8.54,16.71A1,1,0,0,1,7.12,16.71Z"/><path class="fill" d="M6.71,6.71a1,1,0,0,1,1.41,0l8.49,8.48a1,1,0,0,1-1.42,1.42L6.71,8.12A1,1,0,0,1,6.71,6.71Z"/></g></svg>'
 var completeSVG = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><defs></defs><title>Complete</title><g data-name="Layer"><path class="fill" d="M18.07,8.28A1,1,0,0,1,18,9.65l-7.34,6.87A1.19,1.19,0,0,1,9,16.42L6,13.74a1,1,0,0,1,1.33-1.5L10,14.5l6.68-6.3A1,1,0,0,1,18.07,8.28Z"/><path class="fill" d="M12,3a9,9,0,1,0,9,9A9,9,0,0,0,12,3ZM1,12A11,11,0,1,1,12,23,11,11,0,0,1,1,12Z"/></g></svg>'
@@ -16,7 +31,7 @@ var list = document.getElementById("pomodoroCount");
 renderToDoList(); 
 renderPomodoro(); 
 
-// renderPomodoros(): 
+
 
 // Add and Removing tasks To List - updating data and DOM 
 
@@ -161,7 +176,8 @@ function updateCount() {
 setInterval(updateCount, 100);
 updateCount(); 
 
-// Functions to get the time and date
+
+// Functions to get the time and date for the header 
 
 function updateDate() {
 	var now = new Date(); 
@@ -187,6 +203,12 @@ function updateTime() {
 
 setInterval(updateTime, 1000);
 updateTime(); 
+
+// Function to retreive a random quote each day 
+let randomQuote = dailyQuotes[Math.floor(Math.random()*dailyQuotes.length)]; 
+document.getElementById("dailyQuoteHeader").innerText = "'" + randomQuote.line + "'"; 
+document.getElementById("quoteBy").innerText = randomQuote.by; 
+console.log(randomQuote)
 
 // capture Goal of the day for focus 
 goal.addEventListener('keypress', goalInputCapture); 
@@ -228,7 +250,7 @@ function pomodoroObjectUpdated() {
 
 function startTimer () {
 	myTimer = setInterval(myClock, 1000);
-	var c = 2;
+	var c = 1500;
 
 	function myClock () { 
 		--c; 
@@ -240,6 +262,7 @@ function startTimer () {
 			document.getElementById("timer").innerHTML = "You just completed a session!";
 			createPomodoro(); 
 			updatePomodoroCount(); 
+			alert("Time is up!")
 		}
 	}
 }

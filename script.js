@@ -5,7 +5,6 @@ var data = (localStorage.getItem('toDoList')) ? JSON.parse(localStorage.getItem(
 	doneTasks: [] 
 }; 
 
-var dataPomodoro = (localStorage.getItem('pomodorosToday')) ? JSON.parse(localStorage.getItem("pomodorosToday")) : { };
 
 var dailyQuotes = [ 
 {
@@ -29,7 +28,6 @@ var list = document.getElementById("pomodoroCount");
 
 //On load, we want to get the localStorage and pass it in to the data object so it is not empty 
 renderToDoList(); 
-renderPomodoro(); 
 
 
 
@@ -208,7 +206,6 @@ updateTime();
 let randomQuote = dailyQuotes[Math.floor(Math.random()*dailyQuotes.length)]; 
 document.getElementById("dailyQuoteHeader").innerText = "'" + randomQuote.line + "'"; 
 document.getElementById("quoteBy").innerText = randomQuote.by; 
-console.log(randomQuote)
 
 // capture Goal of the day for focus 
 goal.addEventListener('keypress', goalInputCapture); 
@@ -231,79 +228,6 @@ function goalInputCapture(e) {
 		goal.remove(0); 
 	 } 
 }
-
-
-// Basic pomodoro timer
-
-var myTimer; 
-var startButton = document.getElementById("pomodoroStart"); 
-var pauseButton = document.getElementById("pomodoroPause"); 
-var resetButton = document.getElementById("pomodoroReset"); 
-var clearButton = document.getElementById("pomodoroClear");
-
-clearButton.addEventListener("click", clearPomodoroCount); 
-
-// update local storage each time pomodoro counter increases 
-function pomodoroObjectUpdated() { 
-	localStorage.setItem('pomodorosToday',JSON.stringify(pomodorosToday))
-}
-
-function startTimer () {
-	myTimer = setInterval(myClock, 1000);
-	var c = 1500;
-
-	function myClock () { 
-		--c; 
-		var minutes = Math.floor(c/60); 
-		var seconds = c - minutes * 60;  
-		document.getElementById("timer").innerHTML = minutes +"m" + ' ' + seconds + "s"
-		if (c == 0) {
-			clearInterval(myTimer);
-			document.getElementById("timer").innerHTML = "You just completed a session!";
-			createPomodoro(); 
-			updatePomodoroCount(); 
-			alert("Time is up!")
-		}
-	}
-}
-
-function createPomodoro() { 
-	var newPomodoro = document.createElement('img');
-	newPomodoro.setAttribute("src","assets/tomato.svg");
-	newPomodoro.classList.add("pomodoroIcon2"); 
-	list.appendChild(newPomodoro);
-}
-
-// Count number of pomodoros
-function updatePomodoroCount () {
-	var count = document.getElementById('pomodoroCount').childElementCount;
-	document.getElementById("pomodoroCounter").innerHTML = count;
-	dataPomodoro = count; 
-	localStorage.setItem('pomodorosToday', JSON.stringify(count)); 
-}
-
-function renderPomodoro() {
-	if (!dataPomodoro) return; 
-	for (var i=0; i < dataPomodoro; i++) {
-		createPomodoro(); 
-		var count = document.getElementById('pomodoroCount').childElementCount;
-		document.getElementById("pomodoroCounter").innerHTML = count;
-	}
-}
-
-function clearPomodoroCount() {
-	localStorage.removeItem("pomodorosToday"); 
-	document.getElementById("pomodoroCount").innerHTML = ''; 
-	document.getElementById("pomodoroCounter").innerHTML = '0'; 
-}
-
-function resetTimer () { 
-	document.getElementById("timer").innerHTML = "Click to start";
-	clearInterval(myTimer); 
-}
-
-startButton.addEventListener('click', startTimer); 
-resetButton.addEventListener('click', resetTimer); 
 
 
 // NotesList Test

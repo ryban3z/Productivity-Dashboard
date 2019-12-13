@@ -231,9 +231,20 @@ function goalInputCapture(e) {
 
 
 // NotesList Test
-var testArray = ["This is a note about important things", "Here is another note.", "and a third note!"]
+var testArray = [
+	"This is a note about important things", 
+	"Here is another note.", 
+	"and a third note!", 
+	"Here's a fourth"
+]
+
 for (var i=0; i <testArray.length; i++) {
-	document.getElementById("notes").innerHTML += testArray[i]; 
+	noteList = document.getElementById("notes");
+	let noteCard = document.createElement("div");
+	noteCard.innerHTML += testArray[i]; 
+	noteCard.classList.add("noteCard");
+	noteCard.setAttribute('contentEditable', 'true');
+	noteList.appendChild(noteCard);
 }
 
 

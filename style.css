@@ -437,6 +437,9 @@ div.top-right div {
 /*Pomodoro Styling */
 .pomodoroTimer {
 	padding: 5px;
+	background-color: #D4b16A;
+	margin: 5px 0 0 0;
+	border-radius: 5%
 }
 
 .pomodoroTimer h3 {
@@ -454,28 +457,19 @@ div.top-right div {
 	width: 20px;
 }
 
-.pomodoroButtons button {
+.pomoButton {
 	display: inline;
 	cursor: pointer;
-	text-transform: uppercase; 
 	border: 1px white;
 	color: #fff;
 	background-color: #2b2b2b; /*#108B45;*/
 	border: 1.5px solid #fff;
 	border-radius: 10px;
-	width: 20%;
+	width: 25%;
 }
 
-.pomodoroButtons button:hover {
-	display: inline;
-	cursor: pointer;
-	text-transform: uppercase; 
-	border: 1px white;
-	color: #fff;
-	background-color: #2b2b2b; /*#108B45;*/
+.pomoButton:hover {
 	border: 1.5px solid #2b2b2b; /*#108B45;*/
-	border-radius: 10px;
-	width: 20%;
 }
 
 #pomodoroTime {
@@ -622,6 +616,27 @@ button.searchNote:hover {
 	border-radius: 10px;
 }
 
+.noteCard {
+	display: block;
+	background: #fff;
+	border: 2px solid black;
+	height: 75px;
+	width: 150px;
+	font-size: 0.8em; 
+	margin: 3px;
+	text-align: left; 
+	padding: 3px;
+	cursor: pointer;
+}
+
+.noteCard:hover {
+	border: 2px solid red;
+}
+
+.noteCard:focus {
+	outline: thin dotted red;
+}
+
 
 /*Chatbots and advice */
 
@@ -645,4 +660,9 @@ button.searchNote:hover {
 	width: 100%;
 	max-height: 200px;
 	max-width: 200px;
+	cursor: pointer;
+}
+
+#assistant span {
+	font-weight: 900;
 }

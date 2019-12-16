@@ -30,7 +30,7 @@ const createNote = (text) => {
 	let newNote = document.createElement("li");
 		newNote.innerText = text; 
 		newNote.classList.add("noteCard");
-		newNote.setAttribute('contentEditable', 'true');
+		// newNote.setAttribute('contentEditable', 'true');
 		noteList.appendChild(newNote); 
 }
 
@@ -44,21 +44,42 @@ const notesObjectUpdated = () => {
 	localStorage.setItem('userNotes', JSON.stringify(userNotes)); 
 }
 
-
 noteCapture.addEventListener("click", addNote); 
 clearNotes.addEventListener("click",clearNote)
 
 renderNotes(); 
 
-
 // Search bar functionality
 
-//take an input, normalise it to lowercase, 
+function filterItems(array, query) {
+	return array.filter(function(element) {
+		return element.toLowerCase().indexOf(query.toLowerCase()) !== -1;
+	})
+}
+
+function searchNotes() {
+	input = document.getElementById("searchInput").value;
+	let result = filterItems(userNotes,input);
+	console.log(result); 
+}
+
+const searchBar = document.getElementById("searchInput"); 
+searchBar.addEventListener("keyup",searchNotes); 
+
+function searchNotes(event) {
+	const term = event.target.value.toLowerCase(); 
+	const notes = noteList.getElementsByTagName("li"); 
+	Array.from(notes).forEach(function(note){
+		const content = note.textContent;
+		if(content.toLowerCase().indexOf(term)!= -1){
+			note.style.display="";	
+		} else {
+			note.style.display="none";
+		}
+	})
+}
 
 
-let searchInput = document.getElementById("searchInput").value; 
-console.log(document.getElementById("searchInput").value); 
-let lowercaseInput = searchInput.toLowerCase(); 
 
-let checkSearch = userNotes.includes("lowercaseInput"); 
-console.log(checkSearch)
+
+

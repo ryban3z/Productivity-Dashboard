@@ -78,10 +78,10 @@
 					<div>
 					<div id="sound1">Fire</div><div id="sound2">Water</div><div id="sound3" >Wind</div><div id="sound4" >Space</div>
 					 </div>
-					<iframe width="24%" height="50" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/13285945&color=%23423c2a&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+				<!-- 	<iframe width="24%" height="50" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/13285945&color=%23423c2a&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
 					<iframe width="24%" height="50" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/214787114&color=%23e4eef5&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
 					<iframe width="24%" height="50" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/220439959&color=%23e4eef5&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
-					<iframe width="24%" height="50" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/648411375&color=%23e4eef5&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+					<iframe width="24%" height="50" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/648411375&color=%23e4eef5&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe> -->
 				</div>
 				<div class="audioList"></div>
 			 </div>
@@ -91,20 +91,20 @@
 			<h2>Notes</h2>
 			<!-- notes input area  -->
 			<div class="noteInput">
-				<textarea class="textArea " rows="7" cols="50"  placeholder="Start typing your notes here"></textarea>
-				<button type="button" class="noteCapture">Capture Note</button>
+				<textarea id="noteText" rows="7" cols="50"  placeholder="Start typing your notes here"></textarea>
+				<button type="button" id="noteCapture">Capture Note</button>
 			 </div>
 			 
 			  <!-- List of notes plus search bar -->
 			<div class="noteList">
 				<div class="searchBarContainer">
-					<input type="text" placeholder="Search your notes" name="search" class = "goal">
+					<input type="text" placeholder="Search your notes" name="search" id="searchInput">
 					<button type="button" class="searchNote"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><defs></defs><title>Search Notes</title><g id="Layer-29" data-name="Layer"><g id="searchSVG" data-name="Vrstva 92"><path class="searchSVG" d="M13.68,2.13A8,8,0,0,0,7.55,15.27L3.73,19.08A1,1,0,0,0,5.15,20.5L9,16.62a7.91,7.91,0,0,0,4.66,1.51,8,8,0,1,0,0-16Zm0,14a6,6,0,1,1,6-6A6,6,0,0,1,13.68,16.13Z"/></g></g></svg></button> 
 				</div>
 				<div class="notesContainer">
-					<div id="notes">
-						
-					</div>
+					<ul id="notes">
+					</ul>
+					<button id="clearNotes">Clear</button>
 				</div>
 			 </div>
 			 <!-- Chatbot  -->
@@ -118,4 +118,6 @@
 </body>
 	<script type="text/Javascript" src="script.js"></script>
 	<script type="text/javascript" src="pomodoro.js"></script>
+	<script type="text/javascript" src="todo.js"></script>
+	<script type="text/javascript" src="notes.js"></script>
 </html>

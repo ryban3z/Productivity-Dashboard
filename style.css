@@ -472,6 +472,21 @@ div.top-right div {
 	border: 1.5px solid #2b2b2b; /*#108B45;*/
 }
 
+#pomodoroClear {
+	display: inline;
+	cursor: pointer;
+	border: 1px white;
+	color: #fff;
+	background-color: red; /*#108B45;*/
+	border: 1.5px solid #fff;
+	border-radius: 10px;
+	width: 25%;
+}
+
+#pomodoroClear:hover {
+	border: 1.5px solid red; /*#108B45;*/
+}
+
 #pomodoroTime {
 	margin: 10px 0px 10px 0px;
 }
@@ -538,7 +553,7 @@ div.top-right div {
 	justify-content: flex-start;
 }
 
-.textArea {
+#noteText {
 	width: 80%;
 	background-color: #CFCFCF;
 	padding: 0px 5px 0px 5px;
@@ -546,7 +561,7 @@ div.top-right div {
 	border-radius: 10px;
 }
 
-.noteInput .noteCapture {
+.noteInput #noteCapture {
 	
 	cursor: pointer;
 	text-transform: uppercase; 
@@ -557,7 +572,7 @@ div.top-right div {
 	border-radius: 10px;
 	
 }
-.noteInput .noteCapture:hover {
+.noteInput #noteCapture:hover {
 	cursor: pointer;
 	text-transform: uppercase; 
 	border: 1px white;
@@ -616,6 +631,14 @@ button.searchNote:hover {
 	border-radius: 10px;
 }
 
+.notesContainer #notes {
+	width: 100%;
+	min-height: 200px;
+	background: #FFFDED;
+	border: 1px solid black;
+	margin: 5px;
+}
+
 .noteCard {
 	display: block;
 	background: #fff;
@@ -635,6 +658,21 @@ button.searchNote:hover {
 
 .noteCard:focus {
 	outline: thin dotted red;
+}
+
+#clearNotes {
+	display: inline;
+	cursor: pointer;
+	border: 1px white;
+	color: #fff;
+	background-color: red; /*#108B45;*/
+	border: 1.5px solid #fff;
+	border-radius: 10px;
+	width: 25%;
+}
+
+#clearNotes:hover {
+	border: 1.5px solid red; /*#108B45;*/
 }
 
 

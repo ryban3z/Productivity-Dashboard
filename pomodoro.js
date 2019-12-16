@@ -45,7 +45,6 @@ function startTimer () {
 	}
 }
 
-
 // on click clear pomodoro counter and icons 
 function clearPomodoroCount() {
 	localStorage.removeItem("pomodorosToday"); 

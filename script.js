@@ -48,26 +48,48 @@ document.getElementById("dailyQuoteHeader").innerText = "'" + randomQuote.line +
 document.getElementById("quoteBy").innerText = randomQuote.by; 
 
 // capture Goal of the day for focus 
-goal.addEventListener('keypress', goalInputCapture); 
 
 function goalInputCapture(e) {
-	var goal = document.getElementById("goal")
+	var goal = document.getElementById("goal"); 
 
 	if (goal && e.code === 'Enter') { 
-	
-		var goalPlace = document.getElementById("goalPlace"); 
+		var appendGoal = document.getElementById("goalInput"); 
 		var text = goal.value;
 
-		var goalElement = document.createElement("h4"); 
-		goalElement.innerText = text; 
-		goalElement.classList.add('goalElement'); 
+		var goalToday = document.createElement("p"); 
+		goalToday.innerText = text; 
+		// goalToday.classList.add('goalToday'); 
+		goalToday.id = "goalToday"
 
-		goalPlace.appendChild(goalElement); 
+		var goalButton = document.createElement('button');
+		goalButton.innerHTML = "X";
+		goalButton.classList.add("goalDelete"); 
+
+		goalToday.appendChild(goalButton); 
+		appendGoal.appendChild(goalToday); 
 
 		// Remove input field after capturing value 
-		goal.remove(0); 
+		// goal.remove(0); 
+		goal.style.display = "none";
 	 } 
 }
+
+function goalOfDayDelete (e) {
+	var goalToday = document.getElementById("goalToday"); 
+	var goalParent = goalToday.parentNode; 
+	var goal = document.getElementById("goal");
+	if (e.target && e.target.className == 'goalDelete') {
+		goalParent.removeChild(goalToday);
+		goal.style.display = "block"; 
+		goal.value = ''; 
+
+	
+	}
+}
+
+document.addEventListener('click',goalOfDayDelete); 
+goal.addEventListener('keypress', goalInputCapture); 
+
 
 
 

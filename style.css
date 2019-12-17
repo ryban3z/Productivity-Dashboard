@@ -22,6 +22,7 @@ body {
 	flex-flow: row nowrap; 
 	justify-content: flex-start;
 	align-items: stretch;
+	border: 1px solid red;
 }
 
 /*sets the 3 divs to be the same size */

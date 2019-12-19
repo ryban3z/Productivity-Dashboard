@@ -1,3 +1,205 @@
+/*Stlying of goal of the day section*/
 #goalInput {
 	padding: 0px 0px 0px 15px;
+}
+
+.goalDelete {
+	border-radius: 5px;
+	background: none;
+}
+
+/*Custom Styling of to-do lists*/
+#openTasks:empty::before { 
+	content: 'Add a task to get started.';
+	display: block;
+	width: 100%;
+	text-align: center;
+	color: black;
+	opacity: 0.5;
+ }
+
+#doneTasks:empty::before {
+	content: 'You have no completed items, stop procrastinating.';
+	display: block;
+	width: 100%;
+	text-align: center;
+	color: black;
+	opacity: 0.5;
+}
+
+#openTaskList #openTasks li {
+	height: 25px;
+	border-left: 3px solid rgba(187,182,182, 0.5);
+	margin: 0px 0px 3px 0px;
+	position: relative;
+	padding: 4px 56px 4px 10px ;
+	font-size: 1em;
+	opacity: 0.75;
+}
+
+#openTaskList #openTasks li:hover{
+	border-left: 3px solid green;
+	opacity: 1.0;
+}
+
+#completedTaskList #doneTasks li {
+	text-decoration: line-through;
+	border-left: 3px solid rgba(187,182,182, 0.5);
+	width: 100%;
+	height: 25px;
+	opacity: 0.5;
+	margin: 0px 0px 3px 0px;
+	position: relative;
+	padding: 4px 56px 4px 10px;
+	font-size: 1em;
+}
+
+#completedTaskList #doneTasks li:hover {
+	border-left: 3px solid green;
+	opacity: 1;
+}
+
+/*Complete and delete buttons styling */
+#openTasks .buttonsDiv {
+	width: 56px;
+	height: 28px; 
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+#openTasks .buttonsDiv button {
+	width: 28px; 
+	height: 28px;
+	float: left;
+	background: none;
+	border: 0px;
+	box-shadow: none;
+	outline: none;
+	position: relative;
+}
+
+#openTasks .buttonsDiv button:last-of-type::before {
+	content: '';
+	width: 1px;
+	height: 20px;
+	position: absolute;
+	top: 4px;
+	left: 0;
+	background: black;
+}
+
+#openTasks .buttonsDiv button svg {
+	width: 15px;
+	height: 15px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: -7.5px 0px 0px -7.5px;
+	cursor: pointer;
+}
+
+#openTasks .buttonsDiv button svg .fill {
+	fill: black;
+	opacity: 0.5;
+}
+
+#openTasks .buttonsDiv button svg .fill {
+	transition:fill 0.2s ease;
+}
+
+#openTasks .buttonsDiv button.remove:hover svg .fill {
+	fill: red;
+}
+
+#openTasks .buttonsDiv button.complete:hover svg .fill {
+	fill: #108B45;
+}
+
+#doneTasks .buttonsDiv {
+	width: 56px;
+	height: 28px; 
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+#doneTasks .buttonsDiv button {
+	width: 28px; 
+	height: 28px;
+	float: left;
+	background: none;
+	border: 0px;
+	box-shadow: none;
+	outline: none;
+	position: relative;
+}
+
+#doneTasks .buttonsDiv button:last-of-type::before {
+	content: '';
+	width: 1px;
+	height: 20px;
+	position: absolute;
+	top: 4px;
+	left: 0;
+	background: black;
+}
+#doneTasks .buttonsDiv button svg {
+	width: 15px;
+	height: 15px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: -7.5px 0px 0px -7.5px;
+	cursor: pointer;
+}
+
+#doneTasks .buttonsDiv button svg .fill {
+	fill: black;
+	opacity: 0.5;
+}
+
+#doneTasks .buttonsDiv button svg .fill {
+	transition:fill 0.2s ease;
+}
+
+#doneTasks .buttonsDiv button.remove:hover svg .fill {
+	fill: red;
+}
+
+#doneTasks .buttonsDiv button.complete:hover svg .fill {
+	fill: #108B45;
+} 
+
+
+#doneTasks .buttonsDiv button.complete svg .fill {
+	fill: #108B45;
+}
+
+/*Custom styling of pomodoros*/
+.pomoContainer {
+	position: relative;
+	height: 40px;
+}
+
+#pomodoroCount,
+#bwPomo {
+	height: 40px;
+	width: 100%;
+	position: absolute;
+}
+
+#pomodoroCount {
+	z-index: 10;
+}
+
+#pomodoroCount .pomodoroIcon2 {
+	height: 30px;
+	width: 30px;
+	margin: 2px;
+}
+
+#bwPomo .pomodoroIcon2 {
+	height: 30px;
+	width: 30px;
 }

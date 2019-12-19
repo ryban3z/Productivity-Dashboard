@@ -9,6 +9,7 @@ const startButton = document.getElementById("pomodoroStart");
 const pauseButton = document.getElementById("pomodoroPause"); 
 const resetButton = document.getElementById("pomodoroReset"); 
 const clearButton = document.getElementById("pomodoroClear");
+let list = document.getElementById("pomodoroCount"); 
 
 renderPomodoro(); 
 
@@ -35,7 +36,7 @@ function startTimer () {
 
 		if (c == 0) {
 			clearInterval(myTimer);
-			document.getElementById("timer").innerHTML = "You just completed a session!";
+			document.getElementById("timer").innerHTML = "Session complete!";
 			createPomodoro(); 
 			updatePomodoroCount(); 
 			localStorage.removeItem("pomodoroTime"); 
@@ -67,7 +68,7 @@ function pauseTimer () {
 // Create a pomodoro icon 
 function createPomodoro() { 
 	var newPomodoro = document.createElement('img');
-	newPomodoro.setAttribute("src","assets/tomato.svg");
+	newPomodoro.setAttribute("src","assets/tomato.png");
 	newPomodoro.classList.add("pomodoroIcon2"); 
 	list.appendChild(newPomodoro);
 }

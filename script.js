@@ -82,8 +82,6 @@ function goalOfDayDelete (e) {
 		goalParent.removeChild(goalToday);
 		goal.style.display = "block"; 
 		goal.value = ''; 
-
-	
 	}
 }
 

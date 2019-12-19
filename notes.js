@@ -1,6 +1,8 @@
 // NotesList 
 let userNotes = (localStorage.getItem('userNotes')) ? JSON.parse(localStorage.getItem("userNotes")) : []; 
 
+let notesData = (localStorage.getItem('notesData')) ? JSON.parse(localStorage.getItem("notesData")) : []; 
+
 let noteCapture = document.getElementById("noteCapture"); 
 let noteTextArea = document.getElementById("noteText"); 
 let noteList = document.getElementById("notes"); 
@@ -17,21 +19,33 @@ const renderNotes = () => {
 
 //function to capture note text 
 const addNote = () => {
+	let title= document.getElementById("noteTitle").value; 
 	let text = noteTextArea.value; 
 	if (text) {
 		userNotes.push(text);
 		notesObjectUpdated();  
-		createNote(text);  
+		createNote(title, text);  
 		noteTextArea.value = '';
+		title.value = ''; 
 	}
 }
 
-const createNote = (text) => {
+const createNote = (title, text) => {
 	let newNote = document.createElement("li");
+	let newTitle = document.createElement("h6");
+	let cardBody = document.createElement("div"); 
+	let card = document.createElement("div"); 
+		card.classList.add("card", "mb-1")
+		cardBody.classList.add("card-body"); 
+		newTitle.innerText = title
 		newNote.innerText = text; 
-		newNote.classList.add("noteCard");
+		newNote.classList.add("noteCard", "card-text");
+		newTitle.classList.add("card-title"); 
+		cardBody.appendChild(newTitle); 
+		cardBody.appendChild(newNote); 
+		card.appendChild(cardBody);
 		// newNote.setAttribute('contentEditable', 'true');
-		noteList.appendChild(newNote); 
+		noteList.appendChild(card); 
 }
 
 const clearNote = () => {

@@ -11,9 +11,9 @@
 </head>
 <body>
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		<a class="col navbar-brand d-flex justify-content-start" href="#">Learnr Logo</a>
-		<div class="col-6 d-flex justify-content-center">
-			<blockquote class="blockquote text-center">
+		<a class="col navbar-brand d-flex justify-content-start" href="#"><img src="assets/logo-transparent.png" style="height:50%; width:50%;"></a>
+		<div class="col-6 ">
+			<blockquote class="blockquote text-center my-auto ">
 				<p class="dailyQuote mb-0" id="dailyQuoteHeader"></p>
 				<footer class="blockquote-footer" id="quoteBy"></footer>
 			</blockquote>
@@ -57,7 +57,7 @@
 					 </div> -->
 	 			</div>
 	 			<div class="row">
-	 				<div class="col-4 border">
+	 				<div class="col-4 border border-bottom-0">
 	 					<h5 class="text-center mt-2">To Do</h5>
 	 					<div class="addNewTask input-group mb-3">
 							<input id="inputTask" type="text" placeholder="Enter a new task" class="form-control border-top-0 border-left-0 border-right-0">
@@ -81,23 +81,27 @@
 			 			 </div>
 
 	 				</div>
-	 				<div class="col-8 border">
+	 				<div class="col-8 border border-bottom-0 border-right-0 border-left-0">
 	 					<h5 class="text-center mt-2">Notes</h5>
-						<div class="noteInput">
-							<textarea id="noteText" rows="7" cols="50"  placeholder="Start typing your notes here"></textarea>
-							<button type="button" id="noteCapture">Capture Note</button>
+	 					<div class="row">
+						<div class="col noteInput container">
+								<input id="noteTitle" type="text" name="title" placeholder="Title (optional)" class="form-control block">
+								<textarea id="noteText" rows="7" placeholder="Start typing your notes here" class="w-100 d-block form-control"></textarea>
+							<button type="button" id="noteCapture" class="d-block w-100 btn btn-lg btn-outline-info">Capture Note</button>
 						 </div> 
-						<div class="noteList">
-							<div class="searchBarContainer">
-								<input type="text" placeholder="Search your notes" id="searchInput">
-								<button type="button" id="searchButton" class="searchNote"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><defs></defs><title>Search Notes</title><g id="Layer-29" data-name="Layer"><g id="searchSVG" data-name="Vrstva 92"><path class="searchSVG" d="M13.68,2.13A8,8,0,0,0,7.55,15.27L3.73,19.08A1,1,0,0,0,5.15,20.5L9,16.62a7.91,7.91,0,0,0,4.66,1.51,8,8,0,1,0,0-16Zm0,14a6,6,0,1,1,6-6A6,6,0,0,1,13.68,16.13Z"/></g></g></svg></button> 
-							</div>
-							<div class="notesContainer">
-								<ul id="notes">
-								</ul>
+						 <div class=" col noteList">
+							<div class="searchBarContainer d-flex justify-content-start">
+								<input type="text" placeholder="Search your notes" id="searchInput" class="w-100 form-control">
 								<button id="clearNotes" class="btn btn-sm btn-outline-danger border-0">Clear</button>
 							</div>
+							<div class="notesContainer">
+								<ul id="notes" class="mt-2 list-unstyled"> 
+									<!-- New notes will go here -->
+								</ul>
+							</div> 
 						 </div>
+						</div>
+						
 	 				 </div>
 	 			 </div>
 	 		</div>
@@ -105,6 +109,7 @@
 	 			<div class="container border-bottom">
 	 				<h5 class="text-center mt-2">Calendar</h5>
 	 				<p id="timeLine" class="top-left-item">Today is <strong><span id="date"></span></strong> and the time is <strong><span id="time"></span>.</p></strong>
+	 				<p>Your last learning session was:</p>
 	 			</div>
 	 			<div class="container border-bottom">
 	 				<div class="pomodoroTimer">
@@ -153,14 +158,24 @@
 			 		  	 </div>
 			 		  </div>
 	 		     </div>
-	 			<div class="container border">
+	 			<div class="container">
 	 				<h5 class="text-center mt-2">Sounds</h5>
-	 				<div id="sound1">Fire</div><div id="sound2">Water</div><div id="sound3" >Wind</div><div id="sound4" >Space</div>
-	 <!-- 			<iframe width="90%" height="50" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/13285945&color=%23423c2a&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
-					<iframe width="90%" height="50" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/214787114&color=%23e4eef5&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
-					<iframe width="90%" height="50" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/220439959&color=%23e4eef5&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
-					<iframe width="90%" height="50" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/648411375&color=%23e4eef5&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
-	  -->		</div>
+	 				<p class="text-left">Improve concentration by filtering out ambient noise</p>
+	 				<div class="row">
+		 				<div class="col-3">
+		 					<div id="sound1" class="h-25 d-flex justify-content-center align-items-center"><p class="font-weight-bold">Fire</p></div>
+		 					<div id="sound2" class="h-25 d-flex justify-content-center align-items-center"><p class="font-weight-bold">Water</p></div>
+		 					<div id="sound3" class="h-25 d-flex justify-content-center align-items-center"><p class="font-weight-bold">Wind</p></div>
+		 					<div id="sound4" class="h-25 d-flex justify-content-center align-items-center" ><p class="font-weight-bold">Space</p></div>
+		 				</div>
+		 				<div class="col-9 ">
+			 				<iframe width="90%" height="50" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/13285945&color=%23423c2a&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+							<iframe width="90%" height="50" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/214787114&color=%23e4eef5&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+							<iframe width="90%" height="50" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/220439959&color=%23e4eef5&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+							<iframe width="90%" height="50" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/648411375&color=%23e4eef5&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+						</div>
+					</div>
+	 		</div>
 	 		</div>
 	 	</div>
 	 </div>

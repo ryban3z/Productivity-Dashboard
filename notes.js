@@ -1,13 +1,6 @@
 // NotesList 
 let notesData = (localStorage.getItem('notesData')) ? JSON.parse(localStorage.getItem("notesData")) : []; 
 
-// localStorage.setItem("notesData",JSON.stringify(notesData));
-// let notesDataParsed = JSON.parse(localStorage.getItem('notesData'));
-// console.log(notesDataParsed); 
-// console.log(notesDataParsed[0].title)
-// console.log(notesDataParsed[0].text)
-
-
 let noteCapture = document.getElementById("noteCapture"); 
 let noteTextArea = document.getElementById("noteText"); 
 let noteList = document.getElementById("notes"); 
@@ -69,7 +62,6 @@ const renderNotes = () => {
 	}
 }
 
-// renderNotes2(); 
 renderNotes(); 
 
 // Search bar functionality
@@ -80,11 +72,11 @@ function filterItems(array, query) {
 	})
 }
 
-function searchNotes() {
-	input = document.getElementById("searchInput").value;
-	let result = filterItems(userNotes,input);
-	console.log(result); 
-}
+// function searchNotes() {
+// 	input = document.getElementById("searchInput").value;
+// 	let result = filterItems(userNotes,input);
+// 	console.log(result); 
+// }
 
 const searchBar = document.getElementById("searchInput"); 
 searchBar.addEventListener("keyup",searchNotes); 

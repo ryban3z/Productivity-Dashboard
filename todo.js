@@ -41,7 +41,6 @@ function createListElement(text, doneTasks) {
 
 	var item = document.createElement("li"); // Create new list element 
 	item.innerText = text; //set input value to the innertext of the element 
-	// item.setAttribute("contentEditable", "true") //make content editable
 		
 	//create remove and complete buttons 
 	var buttons = document.createElement("div"); //div for both buttons 

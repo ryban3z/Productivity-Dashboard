@@ -3,9 +3,51 @@
 	padding: 0px 0px 0px 15px;
 }
 
+#goalToday {
+	text-transform: capitalize;
+	font-weight: bold;
+}
+
 .goalDelete {
 	border-radius: 5px;
+	background-color: #fff;
+	margin: 0px 0px 0px 15px;
+}
+
+button.goalDelete {
+	width: 28px; 
+	height: 28px;
+/*	float: right;*/
 	background: none;
+	border: 0px;
+	box-shadow: none;
+	outline: none;
+	opacity: 0.25;
+}
+
+button.goalDelete:hover {
+	width: 28px; 
+	height: 28px;
+/*	float: right;*/
+	background: none;
+	border: 0px;
+	box-shadow: none;
+	outline: none;
+	opacity: 1;
+}
+
+button.goalDelete:hover svg .fill {
+	fill: red;
+}
+
+button.goalDelete svg {
+	width: 15px;
+	height: 15px;
+	top: 50%;
+	left: 50%;
+	margin: -2.5px 0px 0px -7.5px;
+	cursor: pointer;
+	pointer-events: none;
 }
 
 /*Custom Styling of to-do lists*/
@@ -175,6 +217,13 @@
 #doneTasks .buttonsDiv button.complete svg .fill {
 	fill: #108B45;
 }
+
+/*Notes styling*/
+
+#notes .card {
+	background-color: rgba(255,233,128,0.7); 
+}
+
 
 /*Custom styling of pomodoros*/
 .pomoContainer {

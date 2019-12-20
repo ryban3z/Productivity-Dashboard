@@ -1,33 +1,36 @@
 // NotesList 
-let userNotes = (localStorage.getItem('userNotes')) ? JSON.parse(localStorage.getItem("userNotes")) : []; 
-
 let notesData = (localStorage.getItem('notesData')) ? JSON.parse(localStorage.getItem("notesData")) : []; 
+
+// localStorage.setItem("notesData",JSON.stringify(notesData));
+// let notesDataParsed = JSON.parse(localStorage.getItem('notesData'));
+// console.log(notesDataParsed); 
+// console.log(notesDataParsed[0].title)
+// console.log(notesDataParsed[0].text)
+
 
 let noteCapture = document.getElementById("noteCapture"); 
 let noteTextArea = document.getElementById("noteText"); 
 let noteList = document.getElementById("notes"); 
 let clearNotes = document.getElementById("clearNotes"); 
 
-//function to renderNotes on load
-
-const renderNotes = () => {
-	if(!userNotes) return; 
-	for (i=0; i < userNotes.length; i++) {
-		createNote(userNotes[i]); 
-	}
-}
-
 //function to capture note text 
 const addNote = () => {
 	let title= document.getElementById("noteTitle").value; 
 	let text = noteTextArea.value; 
 	if (text) {
-		userNotes.push(text);
+		let obj = {};
+		obj["title"] = title;
+		obj["text"] = text; 
+		notesData.push(obj); 
 		notesObjectUpdated();  
 		createNote(title, text);  
 		noteTextArea.value = '';
-		title.value = ''; 
+		document.getElementById("noteTitle").value = ''; 
 	}
+}
+
+const notesObjectUpdated = () => {
+	localStorage.setItem("notesData",JSON.stringify(notesData)); //store data locally ; 
 }
 
 const createNote = (title, text) => {
@@ -49,18 +52,24 @@ const createNote = (title, text) => {
 }
 
 const clearNote = () => {
-	localStorage.removeItem('userNotes'); 
+	localStorage.removeItem('notesData'); 
+	notesData = []; 
 	let node = document.getElementById("notes"); 
 	node.innerHTML = "";
 }
 
-const notesObjectUpdated = () => {
-	localStorage.setItem('userNotes', JSON.stringify(userNotes)); 
+noteCapture.addEventListener("click", addNote); 
+clearNotes.addEventListener("click",clearNote); 
+
+//function to renderNotes on load
+const renderNotes = () => {
+	if (!notesData) return;
+	for (i=0; i < notesData.length; i++) {
+		createNote(notesData[i].title,notesData[i].text); 
+	}
 }
 
-noteCapture.addEventListener("click", addNote); 
-clearNotes.addEventListener("click",clearNote)
-
+// renderNotes2(); 
 renderNotes(); 
 
 // Search bar functionality

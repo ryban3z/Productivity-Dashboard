@@ -1,6 +1,6 @@
 //local data storage 
 let dataPomodoro = (localStorage.getItem('pomodorosToday')) ? JSON.parse(localStorage.getItem("pomodorosToday")) : { }; // asks if there is local storage in pomodorosToday (true), then returns the parsed localstorage otherwise if there is none (false) then returns an empty object
-let timePomodoro = (localStorage.getItem('pomodoroTime')) ? JSON.parse(localStorage.getItem("pomodoroTime")) : 1500	; 
+let timePomodoro = (localStorage.getItem('pomodoroTime')) ? JSON.parse(localStorage.getItem("pomodoroTime")) : 3	; 
 
 // Globa variable declaration 
 let myTimer; 

@@ -41,7 +41,7 @@
 		</div>	
 		
 	</nav>
-	<div class="container-fluid">
+	<div class="container-fluid toolBoard">
 	 	<div class="row">
 	 		<div class="col-9 border-top">
 	 			<div class="container-fluid">
@@ -121,30 +121,36 @@
 	 			 </div>
 	 		</div>
 	 		<div class="col-3 border">
-	 			<div class="container border-bottom">
+	 			<div class="container border-bottom"><!--Calendar Fucntion-->
 	 				<h5 class="text-center mt-2">📅 Calendar</h5>
 	 				<p id="timeLine" class="top-left-item">Today is <strong><span id="date"></span></strong> and the time is <strong><span id="time"></span>.</p></strong>
 	 				<p>Your last learning session was: <strong>4 DAYS AGO</strong></p>
 	 				<p>Current streak: <strong>M T W T F S S</strong></p>
 	 			</div>
-	 			<div class="container border-bottom">
+	 			<div class="container border-bottom"><!--Pomodoro Fucntion-->
 	 				<div class="pomodoroTimer">
-						<h5 class="text-center mt-2">⏱ P<a href="https://en.wikipedia.org/wiki/Pomodoro_Technique" target="_blank"><img style="height:12px; width: 12px" src="assets/tomato.svg"></a>m<a href="https://en.wikipedia.org/wiki/Pomodoro_Technique" target="_blank"><img style="height:12px; width: 12px" src="assets/tomato.svg"></a>d<a href="https://en.wikipedia.org/wiki/Pomodoro_Technique" target="_blank"><img style="height:12px; width: 12px" src="assets/tomato.svg"></a>r<a href="https://en.wikipedia.org/wiki/Pomodoro_Technique" target="_blank"><img style="height:12px; width: 12px" src="assets/tomato.svg"></a>Timer</h5>
-						<p>Focus your effort into 25 minute blocks. </p>
+						<h5 class="text-center mt-2">Focus <small class="text-muted">Time-boxed learning ⏱</small></h5>
+						<div class="container d-flex justify-content-center">
+							<img src="assets/tomato.svg" style="height: 75px; width:75px">
+						</div>
 						<div class="container">
-							<div class="btn-group btn-group-sm pomodoroButtons" role="group">
-								<button id="pomodoroStart" class="pomoButton btn btn-sm btn-outline-success border-0">Start</button>
-								<button id="pomodoroPause" class="pomoButton btn btn-sm btn-outline-warning border-0">Pause</button>
-								<button id="pomodoroReset" class="pomoButton btn btn-sm btn-outline-primary border-0">Reset</button>
-							</div>
-							<div class="container timeRemaining border">
-								<p id="pomodoroTime" class="text-center">Time remaining</p>
-								<h4 class="block font-weight-bold text-center text-monospace" id="timer">"Click to start"</h4>
+							<div class="container timeRemaining">
+								<h3 class="block font-weight-bold text-center text-monospace my-2" id="timer">"Click to start"</h3>
 							 </div>
-								
+							 <div class="btn-group btn-group-sm pomodoroButtons container" role="group">
+								<button id="pomodoroStart" class="pomoButton btn btn-sm btn-light">
+									<img src="assets/play.png" style="height:26px; width: 26px;">
+								</button>
+								<button id="pomodoroPause" class="pomoButton btn btn-sm btn-light">
+									<img src="assets/pause.png">
+								</button>
+								<button id="pomodoroReset" class="pomoButton btn btn-sm btn-light">
+									<img src="assets/reset.png" style="height:20px; width: 20px;">
+								</button>
+							</div>
 						</div>
 							<div class="container d-flex justify-content-center mt-3">
-								<p class="d-block align-middle">Completed Today: <span class="font-weight-bold" id="pomodoroCounter">0</span></p>
+								<p class="h3 d-block align-middle">Completed Today: <span class=" h3 font-weight-bold" id="pomodoroCounter">0</span></p>
 							 </div>
 							<div class="container pomoContainer">
 								<div id="bwPomo" class=""> <!-- Black and white pomodoros  -->
@@ -164,8 +170,8 @@
 							 </div>
 							<div class="container d-flex justify-content-center"><button id="pomodoroClear" class="btn btn-sm btn-outline-danger border-0 pomoButton">Clear</button></div>
 					 </div>
-			 	 </div>
-	 			<div class="container d-flex justify-content-start">
+			 	</div>
+	 			<div class="container d-flex justify-content-start"><!--Robo Fucntion-->
 	 				<div id="adviceBot">
 	 					<h5 class="text-center mt-2">Meet Robo. Your assistant.</h5>
 			 			<div class="d-flex justify-content-start align-items-center">
@@ -173,12 +179,12 @@
 					 		 <img src ="assets/my-robot3.png" style="height:180px; width:180px; cursor:pointer"> 
 			 		  	 </div>
 			 		  </div>
-	 		     </div>
-	 			
+	 		    </div>
 	 		</div>
-	 		</div>
-	 	</div>
-	 	<footer class="footer border bg-light">
+		</div>
+		<button class="btn roboButton"><img src="Assets/my-robot3.png" style="height: 100px; width:100px;"></button>
+	</div>
+	<footer class="footer border bg-light"><!--Footer-->
 	 		<div class="container">
 	 			<h5 class="text-center mt-2">🎵 Sounds 🎵</h5>
 	 			<p class="text-center">Improve concentration and flow by filtering out ambient noise and listening to these beautiful natural sounds.</p>
@@ -219,15 +225,14 @@
 					<h6 class="text-muted">&copy; Copyright 2020</h6> 
 				</div>
 			 </div>
-	 	 </footer>
-	 </div>
-
-
-
+	</footer>
+	
+</body>
+<!-- Bootstrap Scripts  -->
 	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-</body>
+<!-- My Scripts -->
 	<script type="text/Javascript" src="script.js"></script>
 	<script type="text/javascript" src="pomodoro.js"></script>
 	<script type="text/javascript" src="todo.js"></script>

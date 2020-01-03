@@ -21,7 +21,7 @@ clearButton.addEventListener("click", clearPomodoroCount);
 // Timer start function 
 function startTimer () {
 	myTimer = setInterval(myClock, 1000);
-	startButton.disabled = true; 
+	startButton.disabled = true;
 	// let c = 10;
 
 	function myClock () { 

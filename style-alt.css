@@ -252,3 +252,16 @@ button.goalDelete svg {
 	height: 30px;
 	width: 30px;
 }
+
+/* Robobutton styling */
+
+.toolBoard {
+	position: relative;
+}
+
+.roboButton {
+	position: sticky;
+	position: -webkit-sticky;  
+	bottom: 0;
+	right: 0;
+}

@@ -6,12 +6,20 @@ var dailyQuotes = [
 	by: "Theodore Roosevelt"
 }, 
 {
-	line: "Well done is better than well said", 
+	line: "Well done is better than well said.", 
 	by: "Benjamin Franklin"
 }, 
 {
 	line: "Quality is not an act, it is a habit",
 	by: "Aristotle"
+}, 
+{
+	line: "Perfect is the enemy of good.",
+	by: "Voltaire"
+},
+{
+	line: "You don't have to be great to start, but you have to start to be great.",
+	by: "Zig Ziglar"
 }
 ]; 
 

@@ -55,16 +55,16 @@ button.goalDelete svg {
 	content: 'Add a task to get started.';
 	display: block;
 	width: 100%;
-	text-align: center;
+	text-align: left;
 	color: black;
 	opacity: 0.5;
  }
 
 #doneTasks:empty::before {
-	content: 'You have no completed items, stop procrastinating.';
+	content: 'You have no completed items.';
 	display: block;
 	width: 100%;
-	text-align: center;
+	text-align: left;
 	color: black;
 	opacity: 0.5;
 }
@@ -255,9 +255,6 @@ button.goalDelete svg {
 
 /* Robobutton styling */
 
-.toolBoard {
-	position: relative;
-}
 
 .roboButton {
 	position: sticky;

@@ -4,7 +4,10 @@ A study assistance tool for improving the ability to get things done, track prog
 Use this tool to help work and study more effectively - this is a learning dashboard designed to help you focus your learning goals and activities. 
 
 
-# Initial Setup
+# Initial Setup - Setup your dashboard 
+
+
+# How to Customise your Page
 --Step 1: Add Your Topics 
 
 --Step 2: Specify your goals for each topic - what do you want to

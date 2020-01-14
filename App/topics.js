@@ -18,9 +18,9 @@ function addTopic(e) {
 
 function createTopic (topic) {
     let newTopic = document.createElement("button");
-        newTopic.classList.add("btn", "mx-1", "d-block", "my-1");
-        let randomClass = btnClass[Math.floor(Math.random()*btnClass.length)]; 
-        newTopic.classList.add(randomClass); 
+        newTopic.classList.add("btn", "d-block", "my-1", "btn-block", "btn-outline-info");
+        // let randomClass = btnClass[Math.floor(Math.random()*btnClass.length)]; 
+        // newTopic.classList.add(randomClass); 
         newTopic.innerHTML = topic;
         topicList.appendChild(newTopic);
 }

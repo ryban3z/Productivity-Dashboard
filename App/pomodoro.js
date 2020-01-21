@@ -15,7 +15,7 @@ const counter = document.getElementById("pomodoroCounter");
 
 renderPomodoro(); 
 
-startButton.addEventListener('click', startTimer); 
+startButton.addEventListener('click', startTimer);  
 pauseButton.addEventListener("click", pauseTimer); 
 resetButton.addEventListener('click', resetTimer); 
 clearButton.addEventListener("click", clearPomodoroCount); 

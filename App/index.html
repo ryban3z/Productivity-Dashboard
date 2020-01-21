@@ -13,35 +13,33 @@
 	<title>Learner - powerful learning!</title>
 </head>
 <body>
-	
 	<div class="container-fluid"><!--Main dashboard-->
 		<div class="row">
 			<div class="col-3 border"><!--Left side navbar -->
 				<div class="container d-flex justify-content-center my-1 mx-1">
 					<img src="assets/logo-transparent.png" style="height:55px; width:166px;" alt="Learner">
-				</div>
-				<div class="container bg-white border rounded-lg"><!-- Profile section-->
-					<h5>Profile</h5>
-					<div class="row mb-2">
+				 </div>
+				<div class="container bg-white border rounded-lg mt-2"><!-- Profile section-->
+					<div class="row my-2">
 						<div class="col-3">
 							<img src="Assets/profile-photo.png" href="Your photo" style="height:70px; width:px">
 						</div>
 						<div class="col-9">
-							<h6>Your Name</h6>
-							<p>Last session: <strong>4 days ago</strong></p>
+							<h6>Welcome, <span class="text-muted">Ryan Perera</span></h6>
+							<h6>Last session: <span class="text-muted">4 days ago</span></h6>
 						</div>
 					</div>
-				</div>
+				 </div>
 				<h4 class="text-center mt-2">Topics</h4>
 				<div class="container-fluid d-flex flex-column border rounded-lg bg-white"><!--Add Topic function--> 
-					<input class="border-left-0 border-right-0 border-top-0 text-center mb-2" id="addTopic" type="text" placeholder="Add Topic">
+					<input class="border-left-0 border-right-0 border-top-0 text-center my-2" id="addTopic" type="text" placeholder="Add Topic">
 					<div class="d-flex flex-column align-items-center" id="topicList"><!--Topics added here --></div>
-					<button id="clearTopic" class="btn btn-sm btn-outline-danger border-0">Clear</button>
-				</div>
+					<button id="clearTopic" class="btn">Clear</button>
+				 </div>
 				<h4 class="text-center mt-2">Focus Tools</h4>
 				<div class="container border rounded-lg my-2 bg-white"><!--Calendar Fucntion-->
 					<h5 class="text-center mt-2">📅 Planner</h5>
-					<p id="timeLine" class="text-left">Date: <strong><span id="date"></span></strong>. Time: <strong><span id="time"></span></p></strong>
+					<p id="timeLine" class="text-center">Date: <strong><span id="date"></span></strong>. Time: <strong><span id="time"></span></p></strong>
 					<p class="container d-flex justify-content-between">
 						<img src="Assets/monday.png" style="height:35px; width: 35px">
 						<img src="Assets/tuesday.png"style="height:35px; width: 35px">
@@ -54,19 +52,18 @@
 				</div>
 				<div class="container border rounded-lg my-2 bg-white"><!--Pomodoro Fucntion-->
 					<div class="pomodoroTimer">
-					   <h5 class="text-center mt-2">Focus <small class="text-muted">with time-boxed learning ⏱</small></h5>
-					   
+					   <h5 class="text-center mt-2">⏱  Timer</h5>
 						   <div class="container d-flex">
 							   <div class="container">
-								   <button id="pomodoroStart" class="pomoButton btn btn-sm ">
+								   <button id="pomodoroStart" class="pomoButton btn">
 									   <img src="assets/play.png" style="height:26px; width: 26px;">
-								   </button>Start<br>
-								   <button id="pomodoroPause" class="pomoButton btn btn-sm">
+								   </button><br>
+								   <button id="pomodoroPause" class="pomoButton btn">
 									   <img src="assets/pause.png">
-								   </button>Pause<br>
-								   <button id="pomodoroReset" class="pomoButton btn btn-sm">
+								   </button><br>
+								   <button id="pomodoroReset" class="pomoButton btn">
 									   <img src="assets/reset.png" style="height:26px; width: 26px;">
-								   </button>Reset
+								   </button>
 							   </div>
 							   <div class="container d-flex flex-column justify-content-center align-items-center">
 								   <img src="assets/tomato.svg" style="height: 75px; width:75px">
@@ -75,7 +72,7 @@
 							   <div class="container d-flex flex-column justify-content-center mt-1">
 								   <p class="h5 d-block align-middle">Completed Today: <span class=" h5 font-weight-bold" id="pomodoroCounter">0</span></p>
 								   <div class="container d-flex justify-content-center">
-									   <button id="pomodoroClear" class="btn btn-sm btn-outline-danger border-0 pomoButton">Clear</button>
+									   <button id="pomodoroClear" class="btn pomoButton">Clear</button>
 								   </div>
 							   </div>
 							</div>
@@ -104,101 +101,92 @@
 						   
 					</div>
 				</div>
-				<!-- <div class="container border rounded-lg my-2 bg-white d-flex justify-content-start">
-					<div id="adviceBot">
-						<h5 class="text-center mt-2">Meet Robo. Your assistant.</h5>
-						<div class="d-flex justify-content-start align-items-center">
-							<p id="assistant">Ask Robo for advice on tips and strategies to be more effective when learning.</p>	
-							<img src ="assets/my-robot3.png" style="height:180px; width:180px; cursor:pointer"> 
-						</div>
-					</div>
-				</div> -->
-			</div>
-
-			<div class="col-9 border"><!-- Main study tools-->
+			 </div>
+			<div class="col-9 border"><!-- Right side main study tools-->
 				<blockquote class="blockquote text-center my-auto"><!--Quote of the day-->
 					<p class="dailyQuote mb-0" id="dailyQuoteHeader"></p>
 					<footer class="blockquote-footer" id="quoteBy"></footer>
-				</blockquote>
-				<div class="container d-flex justify-content-center align-items-center py-2"><!--Goal of the day-->
+				 </blockquote>
+				<div class="container d-flex justify-content-center align-items-center py-2 my-2"><!--Goal of the day-->
 					<input id="goal" class="form-control border-left-0 border-top-0 border-right-0 text-center p-2" type="text" placeholder="Write Down Your Main Focus Today">
 					<div id="goalInput" class="my-auto text-center text-primary"><!-- Goal input goes here --></div>
-				</div>
-				<h3 class="ml-2">Overview <small class="text-muted">Current Topic</small></h3> 
-				<div class="row d-flex justify-content-around"><!--Active tools -->
-					<div class="col-4 border rounded-lg my-3 mx-1 bg-white"><!--To do function -->
-								<h5 class="text-center mt-2">To Do</h5>
-								<div class="addNewTask input-group mb-3">
-								   <input id="inputTask" type="text" placeholder="Enter a new task" class="form-control border-top-0 border-left-0 border-right-0">
-								   <div class="input-group-append">
-									   <input id="addItem" type="button" value="Add" class="btn btn-outline-info border-0 rounded"></input>
-								   </div>
-								</div>
-							   <div class="d-flex justify-content-between mb-1">
-								   <h6 class="">Remaining (<span id="taskCount"></span>)</h6>
-								   <button id="clearOpenTasks" class="btn btn-sm btn-outline-danger border-0">Clear</button>
-								</div>
-							   <div id="openTaskList" class="taskList ">
-								   <ul id="openTasks" class="list-unstyled"></ul>
-								 </div>
-							   <div class="d-flex justify-content-between align-items-center mb-1">
-								   <h6 class="">Completed (<span id="doneCount"></span>)</h6>
-								   <button id="clearDoneTasks" class="btn btn-sm btn-outline-danger border-0">Clear</button>
-							   </div>
-							   <div id="completedTaskList" class="taskList ">
-								   <ul id="doneTasks" class="list-unstyled"></ul> 
-								 </div>
-					</div>
-					<div class="col-7 border rounded-lg my-3 mx-1 bg-white"><!--Quick notes function-->
-						<h5 class="text-center mt-2">Quick Notes</h5>
-						<div class="row">
-							<div class="col noteInput container"><!--Note add-->
-								<input id="noteTitle" type="text" name="title" placeholder="Title (optional)" class="form-control block">
-								<textarea id="noteText" rows="5" placeholder="Start typing your notes here" class="w-100 d-block form-control"></textarea>
-								<button type="button" id="noteCapture" class="d-block w-100 btn btn-sm border-0 btn-outline-info">Capture Goal</button>
-							</div> 
-							<div class=" col noteList"><!--Notes list and search-->
-								<div class="searchBarContainer d-flex justify-content-start">
-									<input type="text" placeholder="Search in notes" id="searchInput" class="w-100 form-control">
-									<button id="clearNotes" class="btn btn-sm btn-outline-danger border-0">Clear</button>
-								</div>
-								<div class="notesContainer">
-									<ul id="notes" class="mt-2 list-unstyled"><!-- New goals will go here --></ul>
-								</div> 
-							</div>
-						</div>
-							   
-					 </div>
-					 <div class="container"><!--Goals-->
-						 <h4>Goals</h4>
-					 </div>
-					 <div class="d-flex container justify-content-end ">
-						<img src="Assets/my-robot3.png" style="height:150px; width:150px;" class="d-block" style="position: sticky; bottom:0;">
-						<h5 class="text-center d-block mt-2">Meet Robo. Your assistant.</h5>
-					 </div>
-					 
 				 </div>
-			</div>
-		</div>
-
-	 	
-
-		</div>
-	 		
-	 	<div class="row">
-	 		<div class="col container">
+				<h3 class="text-center ">Overview <small class="text-muted">Current Topic</small></h3> 
+				<div class="container">
+					<div class="row"><!--To do and quick notes row -->
+						<div class="col-5">
+							<div class="item border rounded-lg bg-white"><!--To do function -->
+								<h5 class="text-center">To Do</h5>
+									<div class="addNewTask input-group mb-3">
+									   <input id="inputTask" type="text" placeholder="Enter a new task" class="form-control border-top-0 border-left-0 border-right-0">
+									   <div class="input-group-append">
+										   <input id="addItem" type="button" value="Add" class="btn"></input>
+									   </div>
+									</div>
+								   <div class="d-flex justify-content-between mb-1">
+									   <h6 class="">Remaining (<span id="taskCount"></span>)</h6>
+									   <button id="clearOpenTasks" class="btn">Clear</button>
+									</div>
+								   <div id="openTaskList" class="taskList ">
+									   <ul id="openTasks" class="list-unstyled"><!--Open tasks go here --></ul>
+									 </div>
+								   <div class="d-flex justify-content-between align-items-center mb-1">
+									   <h6 class="">Completed (<span id="doneCount"></span>)</h6>
+									   <button id="clearDoneTasks" class="btn">Clear</button>
+								   </div>
+								   <div id="completedTaskList" class="taskList ">
+									   <ul id="doneTasks" class="list-unstyled"><!--Completed tasks go here --></ul> 
+									</div>
+							 </div>			
+						 </div>
+						<div class="col-7">
+							<div class="item border rounded-lg bg-white"><!--Quick notes function-->
+								<h5 class="text-center mt-2">Quick Notes</h5>
+								<div class="row">
+									<div class="col noteInput container"><!--Note add-->
+										<input id="noteTitle" type="text" name="title" placeholder="Title (optional)" class="form-control block">
+										<textarea id="noteText" rows="5" placeholder="Start typing your notes here" class="w-100 d-block form-control"></textarea>
+										<button id="noteCapture" class="btn">Capture Note</button>
+									</div> 
+									<div class=" col noteList"><!--Notes list and search-->
+										<div class="searchBarContainer d-flex justify-content-start">
+											<input type="text" placeholder="Search in notes" id="searchInput" class="form-control">
+											<button id="clearNotes" class="btn">Clear</button>
+										</div>
+										<div class="notesContainer">
+											<ul id="notes" class="mt-2 list-unstyled"><!-- New goals will go here --></ul>
+										</div> 
+									</div>
+								</div>
+							</div>   
+						 </div>
+					 </div>
+				 </div>
+				<div class="container mt-4">
+					<div class="row">
+						<div class="container col-8">
+							<div class="container border rounded-lg bg-white"><!--Goals function-->
+								<h4>Goals</h4>
+								<p>Goal 1</p>
+								<p>Goal 2</p>
+								<p>Goal 3</p>
+							 </div>
+						 </div>
+						<div class="col-4">
+							<div class="container d-flex flex-column align-items-center border rounded-lg bg-white" id="stickyRobo"><!--Robo assistant-->
+								<img src="Assets/my-robot3.png" style="height:150px; width:150px;" class="d-block" >
+								<h5 class="text-center d-block">Meet Robo. Your assistant.</h5>
+							 </div>
+						 </div>
+					 </div>
+				</div>
 				
+					
+					
 			 </div>
-			 <div class="col container">
-				
-			 </div>
-	 		<div class="col cntainer">
-				
-			 </div>	
-	 	</div>
-	</div>
-
-	<footer class="footer border bg-light"><!--Footer-->
+		 </div>
+	 </div>
+	<footer class="footer border bg-light"><!--Footer - audio-->
 	 		<div class="container">
 	 			<h5 class="text-center mt-2">🎵 Sounds 🎵</h5>
 	 			<p class="text-center">Improve concentration and flow by filtering out ambient noise and listening to these beautiful natural sounds.</p>
@@ -239,8 +227,7 @@
 					<h6 class="text-muted">&copy; Copyright 2020</h6> 
 				</div>
 			 </div>
-	</footer>
-	
+	 </footer>
 </body>
 <!-- Bootstrap Scripts  -->
 	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

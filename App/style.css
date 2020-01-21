@@ -8,13 +8,17 @@ h1, h2, h3, h4, h5, h6 {
 	color: #232323;
 }
 
-button.btn, #addItem {
+button.btn, #addItem, #noteCapture {
 	background-color: #078080;
 	color: white;
 }
 
 
+/* Spacing on todo and quick notes */
 
+.item {
+	padding: 20px;
+}
 
 
 /*Notes styling*/
@@ -29,9 +33,7 @@ button.btn, #addItem {
 
 /* Robobutton styling */
 
-.roboButton {
-	position: sticky;
-	position: -webkit-sticky;  
+#stickyRobo {
 	bottom: 0;
 	right: 0;
 }

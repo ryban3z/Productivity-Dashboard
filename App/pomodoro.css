@@ -1,28 +1,4 @@
 
 /*Custom styling of pomodoros*/
-.pomoContainer {
-	position: relative;
-	height: 40px;
-}
 
-#pomodoroCount,
-#bwPomo {
-	height: 40px;
-	width: 100%;
-	position: absolute;
-}
-
-#pomodoroCount {
-	z-index: 10;
-}
-
-#pomodoroCount .pomodoroIcon2 {
-	height: 30px;
-	width: 30px;
-	margin: 2px;
-}
-
-#bwPomo .pomodoroIcon2 {
-	height: 30px;
-	width: 30px;
-}
+ 

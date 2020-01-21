@@ -54,52 +54,23 @@
 				<div class="container border rounded-lg my-2 bg-white"><!--Pomodoro Fucntion-->
 					<div class="pomodoroTimer">
 					   <h5 class="text-center mt-2">⏱  Timer</h5>
-						   <div class="container d-flex">
-							   <div class="container">
-								   <button id="pomodoroStart" class="pomoButton btn">
-									   <img src="assets/play.png" style="height:26px; width: 26px;">
-								   </button><br>
-								   <button id="pomodoroPause" class="pomoButton btn">
-									   <img src="assets/pause.png">
-								   </button><br>
-								   <button id="pomodoroReset" class="pomoButton btn">
-									   <img src="assets/reset.png" style="height:26px; width: 26px;">
-								   </button>
-							   </div>
-							   <div class="container d-flex flex-column justify-content-center align-items-center">
-								   <img src="assets/tomato.svg" style="height: 75px; width:75px">
-								   <h3 class="block font-weight-bold text-center text-monospace my-2" id="timer"></h3>
-							   </div>
-							   <div class="container d-flex flex-column justify-content-center mt-1">
-								   <p class="h5 d-block align-middle">Completed Today: <span class=" h5 font-weight-bold" id="pomodoroCounter">0</span></p>
-								   <div class="container d-flex justify-content-center">
-									   <button id="pomodoroClear" class="btn pomoButton">Clear</button>
-								   </div>
-							   </div>
-							</div>
-							<!-- <div class="btn-group btn-group-sm pomodoroButtons container" role="group"> -->
-							   
-						   <!-- </div> -->
-				   
-						   
-						   <!-- <div class="container pomoContainer"> -->
-							   <!-- <div id="bwPomo" class=""> Black and white pomodoros  -->
-								   <!-- <img src="assets/tomato-bw.png" class="pomodoroIcon2">
-								   <img src="assets/tomato-bw.png" class="pomodoroIcon2">
-								   <img src="assets/tomato-bw.png" class="pomodoroIcon2">
-								   <img src="assets/tomato-bw.png" class="pomodoroIcon2">
-								   <img src="assets/tomato-bw.png" class="pomodoroIcon2">
-								   <img src="assets/tomato-bw.png" class="pomodoroIcon2">
-								   <img src="assets/tomato-bw.png" class="pomodoroIcon2">
-								   <img src="assets/tomato-bw.png" class="pomodoroIcon2">
-								   <img src="assets/tomato-bw.png" class="pomodoroIcon2">
-								   <img src="assets/tomato-bw.png" class="pomodoroIcon2">
-							   </div> -->
-							   <!-- <div id="pomodoroCount"> -->
-								   <!-- Red pomodoros go here  -->
-								<!-- </div> -->
-							<!-- </div> -->
-						   
+					   <div class="container d-flex justify-content-center" style="position: relative;">
+							<img src="assets/tomato.svg" style="height: 300px; width:300px;">
+							<h3  id="timer" class="block font-weight-bold text-center text-monospace my-2" style="position: absolute; top: 50%"></h3>
+							<p class="h5 d-block align-middle" style="position: absolute; top: 70%">Completed: 
+								<span id="pomodoroCounter" class=" h5 font-weight-bold" >0</span> 
+							 </p>
+							<button id="pomodoroStart" class="pomoButton btn" style="position: absolute; right: 75%; top:50%;">
+								<img src="assets/play.png" style="height:26px; width: 26px;">
+							</button>
+							<button id="pomodoroPause" class="pomoButton btn" style="position: absolute; right: 75%; top:50%; display: none;">
+								<img src="assets/pause.png">
+							</button>
+							<button id="pomodoroReset" class="pomoButton btn" style="position: absolute; left: 75%; top: 50%;">
+								<img src="assets/reset.png" style="height:26px; width: 26px;">
+							</button>
+							<button id="pomodoroClear" class="btn pomoButton" style="position: absolute; top: 82%;">Clear</button>
+						</div>
 					</div>
 				</div>
 				

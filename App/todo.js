@@ -13,8 +13,8 @@ var completeSVG = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><
 renderToDoList(); 
 
 // Add and Removing tasks To List - updating data and DOM 
-var addButton = document.getElementById("addItem"); // Grab add new task button 
-var task = document.getElementById("inputTask"); // Grab input new task field 
+const addButton = document.getElementById("addItem"); // Grab add new task button 
+const task = document.getElementById("inputTask"); // Grab input new task field 
 
 function renderToDoList() {
 	if (!data.openTasks.length && !data.doneTasks.length) return; 

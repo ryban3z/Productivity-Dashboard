@@ -9,8 +9,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 button.btn, #addItem, #noteCapture {
-	background-color: #078080;
-	color: white;
+	/* background-color: #078080; */
+	/* color: white; */
+	background-color: none;
+	color: black;
+	
 }
 
 

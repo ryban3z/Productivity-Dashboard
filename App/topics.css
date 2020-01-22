@@ -1,0 +1,7 @@
+.topicItem {
+    margin: 0.25rem;
+}
+
+.topicItem:hover {
+    background-color: aquamarine;
+}

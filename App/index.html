@@ -9,14 +9,18 @@
 	<link rel="stylesheet" type="text/css" href="goal.css">
 	<link rel="stylesheet" type="text/css" href="todo.css">
 	<link rel="stylesheet" type="text/css" href="pomodoro.css">
+	<link rel="stylesheet" type="text/css" href="topics.css">
 	<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
 	<link rel="icon" href="Assets/Learner Icon.png" type="image/gif" sizes="16x16">
 	<title>Learner - focused learning!</title>
 </head>
 <body>
 	<div class="container-fluid"><!--Main container excl footer-->
+		<nav class="navbar navbar-light bg-light">
+			<a class="navbar-brand" href="#">Navbar</a>
+		</nav>
 		<div class="row">
-			<div class="col-3 border"><!--Left side navbar -->
+			<div class="col-3 border pb-4 px-4"><!--Left side navbar -->
 				<div class="container d-flex justify-content-center my-1 mx-1">
 					<img src="assets/logo-transparent.png" style="height:55px; width:166px;" alt="Learner">
 				 </div>
@@ -85,7 +89,7 @@
 					<div id="goalInput" class="my-auto text-center text-primary"><!-- Goal input goes here --></div>
 				 </div>
 				<h3 class="text-center ">Overview <small class="text-muted">Current Topic</small></h3> 
-				<div class="container">
+				<div class="container mt-4">
 					<div class="row"><!--To do and quick notes row -->
 						<div class="col-5">
 							<div class="item border rounded-lg bg-white"><!--To do function -->
@@ -136,7 +140,7 @@
 					 </div>
 				 </div>
 				<div class="container mt-4">
-					<div class="row">
+					<div class="row"><!--Goals and robo row-->
 						<div class="container col-8">
 							<div class="container border rounded-lg bg-white"><!--Goals function-->
 								<h4>Goals</h4>
